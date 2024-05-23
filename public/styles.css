@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 80px;
+    background-image: linear-gradient(to bottom, rgb(186, 233, 233), #ffffff00);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    transition: padding 0.3s ease, flex-direction 0.3s ease;
+}
+.logo {
+    font-size: 25px;
+    color: #00af09;
+    text-decoration: none;
+    font-weight: 600;
+}
+nav a {
+    position: relative;
+    font-size: 18px;
+    padding: 5px 10px;
+    color: #00e00b;
+    text-decoration: none;
+    margin-left: 35px;
+    transition: .2s;
+    font-weight: 600;
+}
+nav a:hover, .logo:hover{
+    color: #053107;
+}
+
+.active {
+    color: rgb(67, 146, 109);
+    
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #00e00b;
+    margin: 5px 0;
+}
+
+/* Show menu when screen width is less than 678px */
+@media screen and (max-width: 698px) {
+    header {
+        padding: 20px 60px;
+    }
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 5px);
+        background-color: #ff2222;
+    }
+    
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -5px);
+        background-color: #ff2222;
+    }
+
+    nav {
+        display: none;
+        /* flex-direction: column; */
+        background-image: linear-gradient(to left, #ffffff00,#ffffff,#ffffff, #ffffff,#ffffff00);
+        position: absolute;
+        top: 70px;
+        right: 60px;
+        border-radius: 5px;
+        text-align: right;
+        width: 70%;
+        /* box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1); */
+        /* backdrop-filter: blur(2px); */
+    }
+    nav.active {
+        display: flex;
+    }
+    nav a {
+        right: 60px;
+        margin: 10px 15px;
+    }
+}
+
+

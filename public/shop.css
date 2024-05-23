@@ -1,0 +1,106 @@
+.layout {
+    height: 100vh;
+    padding: 0 80px;
+    padding-top: 60px;
+}
+
+.search {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+}
+
+input[type="text"] {
+    padding: 5px;
+    width: 430px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f4f4f4;
+    transition: width 0.3s ease-in-out;
+}
+
+input[type="submit"] {
+    padding: 5px 20px;
+    background-color: #008a07;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #005a03;
+}
+
+.layout h1 {
+    font-size: clamp(22px, 2.5vw, 26px);
+}
+
+
+.card-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px; /* Jarak antara card */
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.card {
+    flex: 0 0 auto; /* Ukuran card akan menyesuaikan konten */
+    width: clamp(50px, 33.33%, 300px); /* Ukuran card, sesuaikan sesuai kebutuhan */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: auto; /* Set height to 100% */
+}
+
+
+.card-info {
+    padding: 10px;
+}
+
+.card-info h2 {
+    margin-bottom: 5px;
+    font-size: clamp(16px, 2.5vw, 22px); /* Adjust the min, preferred, and max font size as needed */
+}
+
+.card-info p.price {
+    margin-bottom: 10px;
+    font-size: clamp(14px, 1.8vw, 18px); /* Adjust the min, preferred, and max font size as needed */
+    color: #008a07;
+}
+
+.btn-detail {
+    padding: 5px 30px;
+    background-color: #008a07;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-detail:hover {
+    background-color: #005a03;
+}
+
+@media only screen and (max-width: 698px) {
+    .layout {
+        padding: 0 60px;
+        padding-top: 60px;
+    }
+    .search {
+        padding: 0;
+    }
+    input[type="text"] {
+        width: 200px;
+    }
+}

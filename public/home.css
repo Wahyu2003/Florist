@@ -1,0 +1,117 @@
+/* Penyesuaian CSS */
+.layouts {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(to bottom, rgb(167, 255, 255), rgb(4, 236, 140), rgb(1, 173, 67));
+    padding: 0 80px;
+    color: #fff;
+    font-weight: 700;
+    transition: padding 0.3s ease, flex-direction 0.3s ease;
+}
+
+.layouts h1 {
+    font-size: 48px;
+    line-height: 1; /* Sesuaikan dengan kebutuhan */
+}
+
+.layouts h6 {
+    font-size: 24px;
+}
+
+.layouts p {
+    padding: 10px 0;
+    font-size: 16px;
+    max-width: 600px;
+}
+
+.layouts p a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    padding: 10px 20px; /* Sesuaikan dengan kebutuhan */
+    border-radius: 10px;
+    background-color: rgb(130, 0, 236);
+    transition: background-color 0.3s; /* Ubah 'font-size' ke 'background-color' */
+}
+
+.layouts p a:hover {
+    background-color: rgb(87, 0, 158);
+}
+
+.layouts .left {
+    align-self: flex-end;
+    justify-self: center;
+}
+
+.layouts img {
+    width: 80%; /* Untuk memastikan gambar mengisi lebar div */
+    display: block; /* Menghilangkan spasi di bawah gambar */
+    margin-left: auto; /* Menghilangkan margin */
+    padding: 0; /* Menghilangkan padding */
+}
+@media only screen and (max-width: 788px) {
+    .layouts {
+        padding: 0 80px;
+        flex-direction: column;
+    }
+    .layouts h1 {
+        font-size: 36px;
+    }
+
+    .layouts .right {
+        padding-top: 100px;
+    }
+
+    .layouts .left {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .layouts img {
+        width: 50%;
+    }
+
+    .layouts h6{
+        font-size: 16px;
+        width: 80%;
+    }
+
+    .layouts p{
+        width: 70%;
+        font-size: 14px;
+    }
+
+    .layouts p a {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 698px) {
+    .layouts {
+        padding: 0 60px;
+    }
+
+    .layouts h1 {
+        font-size: 36px;
+    }
+
+    .layouts h6{
+        font-size: 16px;
+    }
+
+    .layouts p{
+        width: 80%;
+        font-size: 14px;
+    }
+
+    .layouts p a {
+        font-size: 14px;
+    }
+    
+    .layouts img {
+        z-index: -1;
+        width: 50%;
+    }
+}
