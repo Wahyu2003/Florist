@@ -10,31 +10,28 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    // login
+    // Registrasi pengguna baru
     public function register(Request $request)
     {
         $attrs = $request->validate([
             'name' => 'required|string',
-            'email'           => 'required|string|email|unique:users,email',
-            // 'username'        => 'required|string|unique:users,username',
-            'password'        => 'required|min:8|confirmed',
+            'email' => 'required|string|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
         ]);
 
         $user = User::create([
             'name' => $attrs['name'],
             'email' => $attrs['email'],
-            // 'username' => $attrs['username'],
             'password' => bcrypt($attrs['password']),
         ]);
 
         return response([
             'user' => $user,
             'token' => $user->createToken('secret')->plainTextToken
-            
         ], 200);
     }
 
-    
+    // Login pengguna
     public function login(Request $request)
     {
         $attrs = $request->validate([
@@ -42,29 +39,28 @@ class AuthController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        if(!Auth::attempt($attrs))
-        {
+        if (!Auth::attempt($attrs)) {
             return response([
                 'message' => 'Invalid credentials'
             ], 403);
         }
-            
+
         return response([
             'user' => auth()->user(),
             'token' => auth()->user()->createToken('secret')->plainTextToken
-            
         ], 200);
     }
 
+    // Logout pengguna
     public function logout(Request $request)
     {
         auth()->user()->tokens()->delete();
         return response([
-            'message' => 'Loggout Success.'
+            'message' => 'Logout success.'
         ], 200);
     }
 
-    // get user details
+    // Mendapatkan detail pengguna
     public function user()
     {
         return response([
@@ -72,6 +68,7 @@ class AuthController extends Controller
         ], 200);
     }
 
+    // Memperbarui profil pengguna
     public function update(Request $request)
     {
         $attrs = $request->validate([
@@ -87,6 +84,24 @@ class AuthController extends Controller
 
         return response([
             'message' => 'User updated.',
+            'user' => auth()->user()
+        ], 200);
+    }
+
+    // Memperbarui detail tambahan pengguna
+    public function updateDetails(Request $request)
+    {
+        $attrs = $request->validate([
+            'alamat_rumah' => 'nullable|string',
+            'no_telp' => 'nullable|string',
+            'tanggal_lahir' => 'nullable|date',
+            'jenis_kelamin' => 'nullable|string|in:Laki-laki,Perempuan',
+        ]);
+
+        auth()->user()->update($attrs);
+
+        return response([
+            'message' => 'User details updated.',
             'user' => auth()->user()
         ], 200);
     }
