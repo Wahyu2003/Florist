@@ -1,3 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+
+.close a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #007bff;
+}
+
+.close a:hover {
+    text-decoration: underline;
+}
+
 .layout-login {
     text-align: center;
     display: flex;
@@ -25,34 +49,32 @@
     color: #f8f8f8;
 }
 
-.login-container input[type="email"],
+.login-container input[type="username"],
 .login-container input[type="password"] {
     color: white;
     background: rgba(0, 0, 0, 0.13);
-    width: calc(100% - 10px);
+    width: calc(100% - 20px); /* Adjusted to prevent overflow */
     padding: 10px;
     margin-bottom: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    cursor: url('');
 }
 
-.login-container input[type="email"]::placeholder,
+.login-container input[type="username"]::placeholder,
 .login-container input[type="password"]::placeholder {
-    color: #ffffff; /* Ganti dengan warna yang diinginkan */
+    color: #ffffff;
 }
 
-.login-container input[type="email"]:focus,
+.login-container input[type="username"]:focus,
 .login-container input[type="password"]:focus {
-    border-color: #c300ff; /* Ganti dengan warna yang diinginkan */
-    outline: none; /* Untuk menghapus outline bawaan */
-    box-shadow: 0 0 5px rgb(255, 255, 255) /* Menambahkan efek bayangan */
+    border-color: #c300ff;
+    outline: none;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
 }
-
 
 .login-container input[type="submit"] {
-    width: calc(100% - 10px);
+    width: calc(100% - 20px); /* Adjusted to prevent overflow */
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -65,17 +87,12 @@
     background-color: #0056b3;
 }
 
-.login-container h3{
-    padding: 10px 0;
-    font-size: 15px;
+.login-container h3 {
     color: #ffbb00;
 }
 
 .login-container h4 {
-    
-    font-size: 13px;
-    color: rgb(255, 255, 255);
-
+    color: #fff;
 }
 
 .login-container a {
@@ -85,4 +102,17 @@
 
 .login-container a:hover {
     text-decoration: underline;
+}
+
+/* Animasi untuk tombol kembali */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
