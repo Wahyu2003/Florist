@@ -41,6 +41,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/plants/edit/{id}',[PlantsController::class, 'edit']);
     Route::post('/plants/update/{id}',[PlantsController::class, 'update']);
     Route::get('/plants/hapus/{id}',[PlantsController::class, 'hapus']);
+    
 
     //ROUTE TABLE USERS
     Route::get('/users',[UsersController::class, 'index']);
