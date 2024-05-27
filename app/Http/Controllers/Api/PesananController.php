@@ -69,11 +69,6 @@ class PesananController extends Controller
         return response()->json(['message' => 'Pesanan berhasil dihapus'], 200);
     }
 
-
-
-    
-
-    
 }
 
 
