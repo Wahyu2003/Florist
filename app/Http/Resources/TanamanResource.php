@@ -17,7 +17,7 @@ class TanamanResource extends JsonResource
         return [
             'id' => $this->id,
             'nama_tanaman' => $this->nama_tanaman,
-            'image_tanaman' => $this->image_tanaman,
+            'image_tanaman' => url('images/' . $this->image_tanaman), // url image nambahkan ini
             'kategori_tanaman' => $this->kategori_tanaman,
             'deskripsi_tanaman' => $this->deskripsi_tanaman,
             'size_tanaman' => $this->size_tanaman,
@@ -25,7 +25,7 @@ class TanamanResource extends JsonResource
             'kelembapan_tanaman' => $this->kelembapan_tanaman,
             'harga_tanaman' => $this->harga_tanaman,
             'stok_tanaman' => $this->stok_tanaman,
-            // 'status_tanaman' => $this->status_tanaman,
+            // perbaikannn
         ];
     }
 }

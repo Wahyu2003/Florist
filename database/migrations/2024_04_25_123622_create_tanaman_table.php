@@ -15,8 +15,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('nama_tanaman', 30);
             $table->string('image_tanaman',100);
-            $table->string('kategori_tanaman', 50);
-            $table->string('deskripsi_tanaman', 50);
+            $table->string('kategori_tanaman', 225);
+            $table->string('deskripsi_tanaman', 225);
             $table->integer('size_tanaman');
             $table->integer('suhu_tanaman');
             $table->integer('kelembapan_tanaman');

@@ -33,7 +33,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/combine',[PlantsController::class, 'combine']);
 Route::get('/shop',[PlantsController::class, 'shoppage']);
 
-// Route::middleware('auth:admin')->group(function () {
+Route::middleware('auth:admin')->group(function () {
     //ROUTE TABLE PLANTS
     Route::get('/plants',[PlantsController::class, 'index']);
     Route::get('/plants/tambah',[PlantsController::class, 'tambah']);
@@ -41,6 +41,7 @@ Route::get('/shop',[PlantsController::class, 'shoppage']);
     Route::get('/plants/edit/{id}',[PlantsController::class, 'edit']);
     Route::post('/plants/update/{id}',[PlantsController::class, 'update']);
     Route::get('/plants/hapus/{id}',[PlantsController::class, 'hapus']);
+    
 
     //ROUTE TABLE USERS
     Route::get('/users',[UsersController::class, 'index']);
@@ -59,7 +60,7 @@ Route::get('/shop',[PlantsController::class, 'shoppage']);
     Route::get('/konfirmasi-pesanan',[OrderController::class, 'konfirmationOrders']);
     Route::get('/konfirmasi-pesanan/{id}',[OrderController::class, 'confirmOrder']);
     Route::get('/hapus-pesanan/{id}', [OrderController::class, 'deleteOrder'])->name('deleteOrder');
-// });
+});
 
 
 //ROUTE TABLE PLANTS

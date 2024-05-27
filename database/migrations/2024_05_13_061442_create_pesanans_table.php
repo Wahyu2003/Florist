@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('bukti_bayar', 150);
             $table->enum('status', ['pending', 'processing', 'completed', 'cancelled'])->default('pending');
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

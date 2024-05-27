@@ -44,12 +44,13 @@ return [
             
         ],
 
-        'tanaman_image' => [
+        'image_tanaman' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/tanaman_image'),
-            'url' => env('APP_URL').'/storage',
+            'root' => storage_path('app/uploads/tanaman'), // atau sesuaikan dengan lokasi penyimpanan yang Anda inginkan
+            'url' => env('APP_URL').'/storage/app/uploads/tanaman',
             'visibility' => 'public',
         ],
+        
 
         'bukti_bayar' => [
             'driver' => 'local',

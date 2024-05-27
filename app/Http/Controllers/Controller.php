@@ -21,7 +21,7 @@ abstract class Controller extends BaseController
 
         $filename = time() . '.png';
         // Simpan gambar
-        Storage::disk($path)->put($filename, base64_decode($image));
+        \Storage::disk($path)->put($filename, base64_decode($image));
 
         // Kembalikan path
         // URL adalah URL dasar, misalnya localhost:8000
