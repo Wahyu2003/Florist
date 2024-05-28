@@ -43,9 +43,9 @@
             <ul>
                 {{-- <li><a href="{{url('client')}}">Pembeli</a></li> --}}
                 {{-- <li><a href="{{url('plants')}}">Keranjang</a></li> --}}
-                <li><a href="{{url('plants')}}">Plants</a></li>
-                <li><a href="{{url('admin')}}">Akun</a></li>
-                <li><a href="{{url('users')}}">Akun Pembeli</a></li>
+                <li><a href="{{url('plants')}}">Data Tanaman</a></li>
+                <li><a href="{{url('admin')}}">Data Admin</a></li>
+                <li><a href="{{url('users')}}">Data Pengguna</a></li>
                 <li><a href="{{url('konfirmasi-pesanan')}}">Konfirmasi Pesanan</a></li>
                 <li><a href="{{url('laporan-penjualan')}}">Laporan Penjualan</a></li>
             </ul>

@@ -2,7 +2,7 @@
 @section('title', 'Tambah Admin')
 @section('content')
 <div class="admin-content">
-    <h3>Data Admin</h3>
+    <h3>Tambah Admin</h3>
 
     <a href="/admin" class="btn btn-primary">Kembali</a>
     

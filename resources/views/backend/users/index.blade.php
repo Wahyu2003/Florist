@@ -27,10 +27,23 @@
 			<td>{{ $user->tanggal_lahir }}</td>
 			<td>{{ $user->jenis_kelamin }}</td>
 			<td>
-				<a href="/users/destroy/{{ $user->id }}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data pengguna ini?')">Hapus</a>
+				{{-- <a href="/users/destroy/{{ $user->id }}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data pengguna ini?')">Hapus</a> --}}
+				<a href="/users/destroy/{{ $user->id }}" class="btn btn-danger btn-lg btn-delete">
+					<i class="fas fa-trash-alt"></i> Hapus
+				</a>
 			</td>
 		</tr>
 		@endforeach
 	</table>
+	<div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h2>Konfirmasi Hapus</h2>
+            <p>Apakah Anda yakin ingin menghapus data pengguna ini?</p>
+            <div class="modal-buttons">
+                <button class="modal-button confirm" id="confirmDelete">Hapus</button>
+                <button class="modal-button cancel" id="cancelDelete">Batal</button>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

@@ -2,7 +2,7 @@
 @section('title', 'Tambah Tanaman')
 @section('content')
 <div class="admin-content">
-        <h3>Data Tanaman Baru</h3>
+        <h3>Tambah Tanaman</h3>
 
         <a href="/plants" class="btn btn-primary">Kembali</a>
         

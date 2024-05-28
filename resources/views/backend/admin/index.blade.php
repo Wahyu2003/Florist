@@ -29,11 +29,23 @@
                 <td>{{ $ad->jenis_kelamin }}</td>
                 <td>
                     <a href="/admin/edit/{{ $ad->id }}" class="btn btn-warning">Edit</a>
-                    <a href="/admin/hapus/{{ $ad->id }}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data admin ini?')">Hapus</a>
+                    <a href="/admin/hapus/{{ $ad->id }}" class="btn btn-danger btn-lg btn-delete">
+                        <i class="fas fa-trash-alt"></i> Hapus
+                    </a>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h2>Konfirmasi Hapus</h2>
+            <p>Apakah Anda yakin ingin menghapus data admin ini?</p>
+            <div class="modal-buttons">
+                <button class="modal-button confirm" id="confirmDelete">Hapus</button>
+                <button class="modal-button cancel" id="cancelDelete">Batal</button>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

@@ -42,11 +42,24 @@
                 </td>
                 <td>
                     <a href="/plants/edit/{{ $pl->id }}" class="btn btn-warning">Edit</a>
-                    <a href="/plants/hapus/{{ $pl->id }}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data Tanaman ini?')">Hapus</a>
+                    {{-- <a href="/plants/hapus/{{ $pl->id }}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data Tanaman ini?')">Hapus</a> --}}
+                    <a href="/plants/hapus/{{ $pl->id }}" class="btn btn-danger btn-lg btn-delete">
+                        <i class="fas fa-trash-alt"></i> Hapus
+                    </a>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h2>Konfirmasi Hapus</h2>
+            <p>Apakah Anda yakin ingin menghapus data tanaman ini?</p>
+            <div class="modal-buttons">
+                <button class="modal-button confirm" id="confirmDelete">Hapus</button>
+                <button class="modal-button cancel" id="cancelDelete">Batal</button>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

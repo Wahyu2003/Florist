@@ -7,7 +7,6 @@
     <a href="/admin" class="btn btn-primary">Kembali</a>
     
     <br/>
-    <br/>
 
     <form action="/admin/update/{{ $admin->id }}" method="post" onsubmit="return confirmSubmission()">
         @csrf

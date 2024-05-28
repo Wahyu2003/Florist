@@ -38,11 +38,24 @@
                     </td>
                     <td>
                         <a href="/konfirmasi-pesanan/{{ $ord->id }}" class="btn btn-success" onclick="return confirm('Apakah Anda yakin ingin mengkonfirmasi pesanan ini?')">KONFIRMASI</a>
-                        <a href="/hapus-pesanan/{{ $ord->id }}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus pesanan ini?')">Hapus</a>
+                        {{-- <a href="/hapus-pesanan/{{ $ord->id }}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus pesanan ini?')">Hapus</a> --}}
+                        <a href="/hapus-pesanan/{{ $ord->id }}" class="btn btn-danger btn-lg btn-delete">
+                            <i class="fas fa-trash-alt"></i> Hapus
+                        </a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h2>Konfirmasi Hapus</h2>
+            <p>Apakah Anda yakin ingin menghapus pesanan ini?</p>
+            <div class="modal-buttons">
+                <button class="modal-button confirm" id="confirmDelete">Hapus</button>
+                <button class="modal-button cancel" id="cancelDelete">Batal</button>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

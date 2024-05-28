@@ -4,7 +4,7 @@
 <div class="admin-content">
     <h3>Edit Tanaman</h3>
 
-    <a href="/plants" class="btn btn-secondary mb-3">Kembali</a>
+    <a href="/plants" class="btn btn-primary">Kembali</a>
 
     <form action="/plants/update/{{ $plant->id }}" method="post" enctype="multipart/form-data" onsubmit="return confirm('Apakah Anda yakin ingin menyimpan perubahan?')">
         @csrf
