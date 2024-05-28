@@ -16,7 +16,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('login');
+        return view('landingpage');
     }
 
     /**
@@ -50,6 +50,6 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/');
     }
 }

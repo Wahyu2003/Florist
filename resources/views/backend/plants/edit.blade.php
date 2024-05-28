@@ -14,12 +14,15 @@
             <label for="nama_tanaman">Nama Tanaman:</label>
             <input type="text" class="form-control" required="required" name="nama_tanaman" value="{{ $plant->nama_tanaman }}">
         </div>
-
         <div class="form-group">
-            <label for="kategori_tanaman">Kategori Tanaman:</label>
-            <input type="text" class="form-control" required="required" name="kategori_tanaman" value="{{ $plant->kategori_tanaman }}">
+            <label for="kategori_tanaman">Kategori:</label>
+            <select name="kategori_tanaman" id="kategori_tanaman" class="form-control" required="required">
+                <option value="" disabled {{ $plant->kategori_tanaman ? '' : 'selected' }}>Pilih Kategori</option>
+                <option value="garden" {{ $plant->kategori_tanaman == 'garden' ? 'selected' : '' }}>garden</option>
+                <option value="indoor" {{ $plant->kategori_tanaman == 'indoor' ? 'selected' : '' }}>indoor</option>
+                <option value="outdoor" {{ $plant->kategori_tanaman == 'outdoor' ? 'selected' : '' }}>outdoor</option>
+            </select>            
         </div>
-
         <div class="form-group">
             <label for="size_tanaman">Size Tanaman:</label>
             <input type="text" class="form-control" required="required" name="size_tanaman" value="{{ $plant->size_tanaman }}">

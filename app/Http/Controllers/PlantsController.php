@@ -22,6 +22,12 @@ class PlantsController extends Controller
         return view('combine', compact('plants'));
     }
 
+    public function landing()
+    {
+        $plants = Plants::all()->groupBy('kategori_tanaman');
+        return view('landingpage', compact('plants'));
+    }
+
     public function shoppage()
     {
         $plants = Plants::all()->groupBy('kategori_tanaman');

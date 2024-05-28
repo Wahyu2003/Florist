@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Riwayat Penjualan')
+@section('title', 'Laporan Penjualan')
 @section('content')
     <div class="admin-content">
     <h3>LAPORAN PENJUALAN</h3>

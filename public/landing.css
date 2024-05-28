@@ -1,0 +1,575 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fff;
+}
+
+.nav {
+    position: fixed;
+    background: linear-gradient(to right, #81cdff, #81cdff54);
+    left: 0;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 30;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo h3 {
+    font-size: 20px;
+    margin-left: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.logo img {
+    padding: 5px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50px;
+}
+
+.nav ul {
+    display: flex;
+    list-style-type: none; /* Tambahkan ini untuk memastikan list tidak memiliki bullet points */
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul button {
+    background-color: transparent; /* Set background-color to transparent */
+    border: none;
+}
+
+.nav ul li {
+    list-style: none;
+    transition: all 0.5s;
+    margin: 0 5px;
+    position: relative;
+}
+
+.nav ul li a , .nav ul li button{
+    display: block; /* Make a block-level element */
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 3px 3px 5px #000;
+    padding: 10px 15px; /* Adjust padding for better click area */
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.nav ul li:hover{
+    margin: 0 5px;
+    border-radius: 5px;
+    background-color: #7ec9fa;
+    color: #ffffff;
+    text-shadow: 0px -3px 5px #000;
+    box-shadow: 0px 5px 5px #00abc2;
+}
+
+.nav ul li:hover a, .nav ul li:hover button{
+    padding: 10px 15px;
+    margin-top: -5px;
+}
+
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#home {
+    height: 100vh;
+}
+
+#home h1 {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    right: 0;
+    left: 200px;
+    font-size: 120px;
+    color: #fff;
+    text-align: center;
+}
+
+.last-img {
+    z-index: -5;
+}
+
+.cloud-img {
+    z-index: -4;
+    margin-right: -250px;
+}
+
+.bird-img {
+    z-index: -2;
+}
+
+.rumputs-img {
+    z-index: 3;
+}
+
+.pohon-img {
+    z-index: 6;
+}
+
+.daun-img, .daun-img2, .daun-img3, .daun-img4 {
+    z-index: 6;
+    margin-top: -50px;
+}
+
+.toko-img {
+    z-index: 2;
+}
+
+.focus-img {
+    z-index: 6;
+}
+
+.kupu-img {
+    z-index: 7;
+}
+
+.serbuk-img, .serbuk-img1 {
+    z-index: 5;
+    margin-left: -250px;
+}
+
+.serbuk-img2, .serbuk-img3 {
+    z-index: 20;
+}
+
+.btn {
+    position: absolute;
+    top: 80%;
+    z-index: 9;
+    margin: 0 auto;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    background-color: #f19800;
+    color: #fff;
+    font-size: 25px;
+    box-shadow: 5px 0 15px rgba(85, 85, 85, 0.8);
+}
+
+/* Shop Section */
+#shop {
+    padding: 20px 60px;
+    background: linear-gradient(to bottom, #00858a, transparent);
+}
+
+
+.search {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+}
+
+.search form {
+    display: flex;
+    align-items: center;
+}
+
+.search input[type="text"] {
+    padding: 5px;
+    width: 430px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f4f4f4;
+    transition: width 0.3s ease-in-out;
+    margin-right: 10px; /* Spacing between text input and submit button */
+}
+
+.search input[type="submit"] {
+    max-width: 100px;
+    padding: 5px 20px;
+    background-color: #008a07;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search input[type="submit"]:hover {
+    background-color: #005a03;
+}
+
+.layout h1 {
+    color: #fff;
+    text-shadow: 5px 5px 5px #000;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-container .card img {
+    width: auto;
+    height: 300px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    padding: 20px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-info h2 {
+    margin: 0 0 10px;
+}
+
+.price {
+    color: #f39c12;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.btn-detail {
+    border-radius: 5px;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-detail:hover {
+    background: #2980b9;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background: #2980b9;
+}
+
+
+#about {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-container h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.cs {
+    cursor: pointer;
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    right: 60px;
+    z-index: 40;
+
+    width: auto;
+    padding: 10px;
+    background: white;
+    box-shadow: 5px 5px 5px #000;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out; /* For rotation animation */
+}
+
+.cs img {
+    height: 20px;
+    width: auto;
+    margin-right: 5px;
+}
+
+#icons {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 60px;
+    z-index: 40;
+    transition: all 0.3s ease-in-out;
+}
+
+.icon {
+    display: block;
+    margin: 15px 0;
+    padding: 10px;
+    background: white;
+    box-shadow: 5px 5px 5px #000;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start position for animation */
+    transition: all 0.3s ease-in-out; /* Animation for visibility */
+}
+
+.icon img {
+    height: 30px;
+    width: auto;
+}
+
+.icon.show {
+    opacity: 1; /* Make visible */
+    transform: translateY(0); /* Move to original position */
+}
+
+.rotate {
+    transform: rotate(360deg); /* Rotate 180 degrees */
+}
+
+.hidden {
+    display: none;
+}
+  
+ 
+#loginBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 20vh 20vw;
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    height: 70%;
+    max-height: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: fixed;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.layout-login {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.514), rgba(0, 0, 0, 0.623)), /* Gradient warna putih transparan */
+                url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    
+    height: 100%;
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.11);
+    backdrop-filter: blur(5px);
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    max-width: 100%;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #f8f8f8;
+}
+
+.login-container input[type="username"],
+.login-container input[type="password"] {
+    color: white;
+    background: rgba(0, 0, 0, 0.13);
+    width: calc(100% - 20px); /* Adjusted to prevent overflow */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-container input[type="username"]::placeholder,
+.login-container input[type="password"]::placeholder {
+    color: #ffffff;
+}
+
+.login-container input[type="username"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #c300ff;
+    outline: none;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+}
+
+.login-container input[type="submit"] {
+    width: calc(100% - 20px); /* Adjusted to prevent overflow */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.login-container h3 {
+    color: #ffbb00;
+}
+
+.login-container h4 {
+    color: #fff;
+}
+
+.login-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}

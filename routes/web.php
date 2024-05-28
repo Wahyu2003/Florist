@@ -9,9 +9,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 // Route::get('/home', function () {
 //     return view('home');
@@ -30,6 +30,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 //     return view('combine');
 // });
 
+Route::get('/',[PlantsController::class, 'landing']);
 Route::get('/combine',[PlantsController::class, 'combine']);
 Route::get('/shop',[PlantsController::class, 'shoppage']);
 
