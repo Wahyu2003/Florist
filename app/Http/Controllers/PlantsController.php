@@ -16,11 +16,11 @@ class PlantsController extends Controller
         return view('backend.plants.index', compact('plants'));
     }
 
-    public function combine()
-    {
-        $plants = Plants::all()->groupBy('kategori_tanaman');
-        return view('combine', compact('plants'));
-    }
+    // public function combine()
+    // {
+    //     $plants = Plants::all()->groupBy('kategori_tanaman');
+    //     return view('combine', compact('plants'));
+    // }
 
     public function landing()
     {
@@ -28,11 +28,25 @@ class PlantsController extends Controller
         return view('landingpage', compact('plants'));
     }
 
-    public function shoppage()
+    public function showDetail($id)
     {
-        $plants = Plants::all()->groupBy('kategori_tanaman');
-        return view('shop', compact('plants'));
+        $plantd = Plants::findOrFail($id);
+        return view('landingpage', compact('plantd'));
     }
+
+    public function getDetail($id)
+    {
+        $plant = Plants::findOrFail($id);
+        return response()->json($plant);
+    }
+
+
+
+    // public function shoppage()
+    // {
+    //     $plants = Plants::all()->groupBy('kategori_tanaman');
+    //     return view('shop', compact('plants'));
+    // }
 
     public function tambah()
     {

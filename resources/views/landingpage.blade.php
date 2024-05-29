@@ -60,7 +60,8 @@
                             <div class="card-info">
                                 <h2>{{ $plant->nama_tanaman }}</h2>
                                 <p class="price">Rp {{ number_format($plant->harga_tanaman, 0, ',', '.') }}</p>
-                                <button class="btn-detail">Detail</button>
+                                <button class="btn-detail"  data-id="{{ $plant->id }}">Detail</button>
+                                {{-- <a href="/detail/{{ $plantd->id }}" class="btn-detail">Detail</a> --}}
                             </div>
                         </div>
                     @endforeach
@@ -94,8 +95,6 @@
         <a href="#" class="icon" id="emailIcon" title="email"><img src="icon/email.png" alt=""></a>
         <a href="#" class="icon" id="waIcon" title="whatsapp"><img src="icon/wa.png" alt=""></a>
     </div>
-    
-
 
     <div id="login-modal" class="modal">
         <div class="modal-content">
@@ -125,7 +124,127 @@
             </div>
         </div>
     </div>
+
+
+
+    {{-- <div id="formContainer" class="form-container">
+        <div class="form-content">
+            <div class="isidetail">
+                <div class="gambarkiri">
+                    <img src="{{ asset('images/' . $plantd->image_tanaman) }}" alt="{{ $plantd->nama_tanaman }}">
+                    <h1>Rp {{ number_format($plantd->harga_tanaman, 0, ',', '.') }}</h1>
+                </div>
+                <div class="isitengah">
+                    <div class="tengahatas">
+                        <div class="kanan">
+                            <h1>{{ $plantd->nama_tanaman }}</h1>
+                        </div>
+                        <div class="kiri">
+                            <h1>Size</h1>
+                            <span>{{ $plantd->size_tanaman }}</span>
+                            <h1>Kelembapan</h1>
+                            <span>{{ $plantd->kelembapan_tanaman }}</span>
+                            <h1>Suhu</h1>
+                            <span>{{ $plantd->suhu_tanaman }}</span>
+                        </div>
+                    </div>
+                    <div class="tengahbawah">
+                        <h1>Kategori</h1>
+                        <p>{{ $plantd->deskripsi_tanaman }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="download">
+                <a href="#">Download</a>
+            </div>
+        </div>
+    </div> --}}
+
+    <!-- Detail Modal -->
+<div id="formContainer" class="form-container" style="display: none;">
+    <div class="form-content">
+        <span id="closeFormBtn" class="close-btn">&times;</span>
+        <div class="isidetail">
+            <div class="gambarkiri">
+                <img src="" alt="gambar">
+                <h1>harga</h1>
+            </div>
+            <div class="isitengah">
+                <div class="tengahatas">
+                    <div class="kanan">
+                        <h1>nama tanaman</h1>
+                    </div>
+                    <div class="kiri">
+                        <h1>size</h1>
+                        <span class="size">24</span>
+                        <h1>kelembapan</h1>
+                        <span class="kelembapan">24</span>
+                        <h1>suhu</h1>
+                        <span class="suhu">24</span>
+                    </div>
+                </div>
+                <div class="tengahbawah">
+                    <div class="bawahtengah">
+                        <h1>kategori</h1>
+                        <h2>Stok Tersedia : <span>0</span></h2>
+                    </div>
+                    <p>detail tanaman</p>
+                </div>
+            </div>
+        </div>
+        <div class="download">
+            <a href="#">Download</a>
+        </div>
+    </div>
+</div>
+
+
     <script src="landing.js"></script>
+    <!-- Include this script in your layout -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.btn-detail').click(function() {
+            var plantId = $(this).data('id');
+            const kategoriGambar = {
+                indoor: 'indoor.jp',
+                outdoor: 'outdoor.jpg',
+                garden: 'garden.jpg',
+                // Tambahkan kategori lainnya sesuai kebutuhan
+            };
+
+            // Fungsi untuk mendapatkan URL gambar berdasarkan kategori
+            function getImageByKategori(kategori) {
+                return kategoriGambar[kategori] || 'indoor2.jpg'; // Mengembalikan gambar default jika kategori tidak ditemukan
+            }
+
+            $.ajax({
+                url: '/plants/detail/' + plantId,
+                type: 'GET',
+                success: function(data) {
+                    $('#formContainer .gambarkiri img').attr('src', '/images/' + data.image_tanaman);
+                    $('#formContainer .gambarkiri h1').text('Rp ' + data.harga_tanaman.toLocaleString('id-ID'));
+                    $('#formContainer .isitengah .kanan h1').text(data.nama_tanaman);
+                    $('#formContainer .isitengah .kiri span.size').text(data.size_tanaman);
+                    $('#formContainer .isitengah .kiri span.kelembapan').text(data.kelembapan_tanaman);
+                    $('#formContainer .isitengah .kiri span.suhu').text(data.suhu_tanaman);
+                    $('#formContainer .tengahbawah h1').text(data.kategori_tanaman); 
+                    $('#formContainer .tengahbawah h2 span').text(data.stok_tanaman); 
+                    $('#formContainer .tengahbawah p').text(data.deskripsi_tanaman);
+                    const kategori = data.kategori_tanaman;
+                    const imageUrl = getImageByKategori(kategori); 
+                    document.querySelector('.form-content').style.background = `linear-gradient(to top, #fff, #ffffff, #ffffff73), url('/kategori/${imageUrl}')`;
+                    $('#formContainer').show();
+                }
+            });
+        });
+
+        $('#closeFormBtn').click(function() {
+            $('#formContainer').hide();
+        });
+    });
+</script>
+
 </body>
 
 </html>

@@ -33,6 +33,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/',[PlantsController::class, 'landing']);
 Route::get('/combine',[PlantsController::class, 'combine']);
 Route::get('/shop',[PlantsController::class, 'shoppage']);
+// Route::get('/detail/{id}', [PlantsController::class, 'showDetail']);
+Route::get('/plants/detail/{id}', [PlantsController::class, 'getDetail']);
+
 
 Route::middleware('auth:admin')->group(function () {
     //ROUTE TABLE PLANTS

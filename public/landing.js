@@ -111,3 +111,19 @@ window.addEventListener("click", function(event) {
         modal.style.display = "none";
     }
 });
+
+
+document.getElementById('openFormBtn').addEventListener('click', function() {
+    document.getElementById('formContainer').style.display = 'flex';
+});
+
+document.getElementById('closeFormBtn').addEventListener('click', function() {
+    document.getElementById('formContainer').style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+    var formContainer = document.getElementById('formContainer');
+    if (event.target == formContainer) {
+        formContainer.style.display = 'none';
+    }
+});
