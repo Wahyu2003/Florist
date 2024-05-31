@@ -9,12 +9,17 @@ body {
     background-color: #fff;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+    
+}
+
 .nav {
     position: fixed;
     background: linear-gradient(to right, #81cdff, #81cdff54);
     left: 0;
+    padding: 0 30px;
     width: 100%;
-    padding: 20px 60px;
     display: flex;
     justify-content: space-between;
     z-index: 30;
@@ -24,6 +29,7 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding: 20px 25px;
 }
 
 .logo h3 {
@@ -41,10 +47,11 @@ body {
 }
 
 .nav ul {
+    align-items: center;
     display: flex;
     list-style-type: none; /* Tambahkan ini untuk memastikan list tidak memiliki bullet points */
     margin: 0;
-    padding: 0;
+    padding: 5px 0;
 }
 
 .nav ul button {
@@ -179,23 +186,23 @@ body {
 
 /* Shop Section */
 #shop {
-    padding: 30px 60px;
-    background: linear-gradient(to top, #00858a, transparent);
+    overflow-y: auto;
+    padding: 0 60px;
+    height: 100vh;
+    background: linear-gradient(to top, #00858a, rgba(173, 255, 214, 0.589));
 }
 
 
-.search {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 0;
+#search {
+    display: none;
 }
 
-.search form {
+#search form {
     display: flex;
     align-items: center;
 }
 
-.search input[type="text"] {
+#search input[type="text"] {
     padding: 5px;
     width: 430px;
     border: 1px solid #ccc;
@@ -207,7 +214,7 @@ body {
     margin-right: 10px; /* Spacing between text input and submit button */
 }
 
-.search input[type="submit"] {
+#search input[type="submit"] {
     max-width: 100px;
     padding: 5px 20px;
     background-color: #008a07;
@@ -218,27 +225,43 @@ body {
     cursor: pointer;
 }
 
-.search input[type="submit"]:hover {
+#search input[type="submit"]:hover {
     background-color: #005a03;
 }
 
+#closeSearch {
+    margin-left: 20px;
+}
+
+.layout {
+    flex: 0 0 auto;
+    height: auto;
+    padding-top: 90px;
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+
 .layout h1 {
+    padding: 20px;
     color: #fff;
     text-shadow: 5px 5px 5px #000;
 }
 
 .card-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 20px; 
+    margin-bottom: 20px;
 }
 
 .card-container .card img {
-    width: auto;
-    height: 300px;
+    max-width: 350px;
+    max-height: 300px;
 }
 
 .card {
+    flex: 0 0 auto;
     background: white;
     border-radius: 10px;
     overflow: hidden;
@@ -287,7 +310,7 @@ body {
 }
 
 /* Modal styles */
-.modal {
+/* .modal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -344,7 +367,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background: #2980b9;
-}
+} */
 
 
 #about {
@@ -441,7 +464,7 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-.modal {
+#login-modal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -449,24 +472,29 @@ input[type="submit"]:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.719);
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     background-color: white;
-    margin: 20vh 20vw;
     padding: 10px;
     padding-left: 20px;
     border-radius: 10px;
     width: 80%;
     max-width: 800px;
-    height: 70%;
+    height: 90%;
     max-height: 800px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     position: fixed;
+    background: linear-gradient(rgba(255, 255, 255, 0.514), rgba(0, 0, 0, 0.623)), 
+                url('background.jpg');
+    background-size: cover;
+    background-position: center;
 }
+
 
 .close {
     color: #aaa;
@@ -496,11 +524,6 @@ form input[type="submit"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.514), rgba(0, 0, 0, 0.623)), /* Gradient warna putih transparan */
-                url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    
     height: 100%;
 }
 
@@ -638,14 +661,13 @@ form input[type="submit"] {
 }
 
 .gambarkiri img {
-    width: 100%;
+    max-width: 350px;
     background-color: #fff;
     box-shadow: 0 10px 10px #888;
     border-radius: 10px;
     margin: 10px;
-    height: 100%;
     max-height: 300px;
-    padding: 20px;
+    padding: 10px;
     transition: all 0.5s ease;
     
 }
@@ -745,4 +767,18 @@ form input[type="submit"] {
 .download:hover {
     background-color: #00883d;
     box-shadow: 0 5px 5px #b1b1b1;
+}
+
+
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s;
 }

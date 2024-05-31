@@ -22,7 +22,7 @@
                 <li><a href="{{url('admin/plants')}}">Manage Plants</a></li>
                 <li><a href="{{url('admin/orders')}}">Orders</a></li>
                 <li><a href="{{url('admin/users')}}">Users</a></li> --}}
-                <li><a href="{{url('keranjang')}}"><img src="{{ asset('icon/keranjang.svg') }}" alt=""></a></li>
+                {{-- <li><a href="{{url('keranjang')}}"><img src="{{ asset('icon/keranjang.svg') }}" alt=""></a></li> --}}
                 <li>
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <img src="{{ asset('icon/logout.svg') }}" alt="">
@@ -52,7 +52,9 @@
         </aside>
 
         <main class="main-content">
-            @yield('content') <!-- This is where the content of each page will be inserted -->
+            <div class="scroll-content">
+                @yield('content') <!-- This is where the content of each page will be inserted -->
+            </div>
         </main>
     </div>
 

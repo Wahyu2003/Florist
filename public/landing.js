@@ -97,7 +97,7 @@ document.getElementById("iconButton").addEventListener("click", function() {
 
   document.getElementById("loginBtn").addEventListener("click", function() {
     var modal = document.getElementById("login-modal");
-    modal.style.display = "block";
+    modal.style.display = "flex";
 });
 
 document.getElementById("close-modal").addEventListener("click", function() {
@@ -113,17 +113,66 @@ window.addEventListener("click", function(event) {
 });
 
 
-document.getElementById('openFormBtn').addEventListener('click', function() {
-    document.getElementById('formContainer').style.display = 'flex';
+document.getElementById('cari').addEventListener('click', function() {
+    document.getElementById('search').style.display = 'flex';
+    document.getElementById('navigate').style.display = 'none';
 });
 
-document.getElementById('closeFormBtn').addEventListener('click', function() {
-    document.getElementById('formContainer').style.display = 'none';
+document.getElementById('closeSearch').addEventListener('click', function() {
+    document.getElementById('search').style.display = 'none';
+    document.getElementById('navigate').style.display = 'flex';
 });
 
 window.addEventListener('click', function(event) {
-    var formContainer = document.getElementById('formContainer');
-    if (event.target == formContainer) {
-        formContainer.style.display = 'none';
+    var search = document.getElementById('search');
+    var nav = document.getElementById('navigate');
+    if (event.target == search) {
+        search.style.display = 'none';
+        nav.style.display = 'flex';
     }
 });
+
+
+// let isShaking = false;
+
+//     function handleScroll(event) {
+//         if (isShaking) return;
+
+//         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//         const scrollHeight = document.documentElement.scrollHeight;
+//         const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+
+//         // Check if scroll position is at the top or bottom
+//         if (scrollTop === 0 || scrollTop + clientHeight >= scrollHeight) {
+//             event.preventDefault();
+//             document.body.classList.add('shake');
+//             isShaking = true;
+
+//             setTimeout(function() {
+//                 document.body.classList.remove('shake');
+//                 isShaking = false;
+//             }, 500);
+//         }
+//     }
+
+//     window.addEventListener('scroll', handleScroll, { passive: false });
+
+    const sections = document.querySelectorAll("section");
+    
+    sections.forEach(section => {
+        section.addEventListener("scroll", () => {
+            // Remove the shake class initially
+            section.classList.remove("shake");
+
+            // Check if the scroll position is at the top or bottom
+            if (section.scrollTop === 0) {
+                // Top of the section
+                section.classList.add("shake");
+                setTimeout(() => section.classList.remove("shake"), 500); // Remove shake after animation
+            } else if (section.scrollHeight - section.scrollTop === section.clientHeight) {
+                // Bottom of the section
+                section.classList.add("shake");
+                setTimeout(() => section.classList.remove("shake"), 500); // Remove shake after animation
+            }
+        });
+    });

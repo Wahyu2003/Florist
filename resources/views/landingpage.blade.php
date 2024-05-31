@@ -9,19 +9,27 @@
 </head>
 
 <body>
-    <section id="home">
-        <div class="nav">
-            <div class="logo">
-                <img src="icon/logo_florist.png" alt="Florist Logo">
-                <h3>Florist</h3>
-            </div>
-            <ul class="navigate">
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#shop">SHOP</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><button id="loginBtn">LOGIN</button></li>
-            </ul>
+    <div class="nav" id="navbar">
+        <div class="logo">
+            <img src="icon/logo_florist.png" alt="Florist Logo">
+            <h3>Florist</h3>
         </div>
+        <ul id="navigate">
+            <li><button id="cari">SEARH</button></li>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#shop">SHOP</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><button id="loginBtn">LOGIN</button></li>
+        </ul>
+        <div id="search">
+            <form action="/shop/cari" method="GET">
+                <input type="text" name="cari" placeholder="Cari Produk .." value="{{ old('cari') }}">
+                <input type="submit" value="CARI">
+                <span id="closeSearch" class="close-btn">&times;</span>
+            </form>
+        </div>
+    </div>
+    <section id="home">
         <div class="hero">
             <img src="mentahan/langit.png" class="last-img" alt="">
             <img src="mentahan/awan.png" class="cloud-img" alt="">
@@ -45,12 +53,6 @@
 
     <section id="shop">
         <div class="layout">
-            <div class="search">
-                <form action="/shop/cari" method="GET">
-                    <input type="text" name="cari" placeholder="Cari Produk .." value="{{ old('cari') }}">
-                    <input type="submit" value="CARI">
-                </form>
-            </div>
             @foreach ($plants as $kategori_tanaman => $items)
                 <h1>{{ $kategori_tanaman }}</h1>
                 <div class="card-container">
@@ -193,7 +195,7 @@
             </div>
         </div>
         <div class="download">
-            <a href="#">Download</a>
+            <a href="#">Download Apk</a>
         </div>
     </div>
 </div>
