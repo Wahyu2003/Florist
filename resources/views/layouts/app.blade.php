@@ -24,7 +24,7 @@
                 <li><a href="{{url('admin/users')}}">Users</a></li> --}}
                 {{-- <li><a href="{{url('keranjang')}}"><img src="{{ asset('icon/keranjang.svg') }}" alt=""></a></li> --}}
                 <li>
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a href="{{url('login')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <img src="{{ asset('icon/logout.svg') }}" alt="">
                     </a>
                 </li>
@@ -32,7 +32,6 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
-                               
             </ul>
         </nav>
     </header>

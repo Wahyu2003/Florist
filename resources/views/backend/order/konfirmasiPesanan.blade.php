@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Konfirmasi Pesanan')
 @section('content')
-    <div class="admin-content">
-    <h3>KONFIRMASI PESANAN</h3>
-    <br>
+<div class="admin-content">
+    <h1>KONFIRMASI PESANAN</h1>
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -32,7 +31,7 @@
                     <td>
                         <ul>
                             @foreach ($ord->orderItems as $item)
-                                <li>{{ $item->plant->nama }} (Jumlah: {{ $item->quantity }}, Harga: {{ $item->sub_harga }})</li> <!-- Sesuaikan dengan perubahan model -->
+                                <li>{{ $item->plant->nama_tanaman }} (Jumlah: {{ $item->quantity }}, Harga: {{ $item->sub_harga }})</li> <!-- Sesuaikan dengan perubahan model -->
                             @endforeach
                         </ul>
                     </td>
@@ -58,4 +57,5 @@
         </div>
     </div>
 </div>
+</body>
 @endsection

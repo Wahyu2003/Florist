@@ -52,8 +52,8 @@
                         <div class="card">
                             <img src="{{ asset('images/' . $plant->image_tanaman) }}">
                             <div class="card-info">
-                                <h2>{{ $plant->nama }}</h2>
-                                <p class="price">Rp {{ number_format($plant->harga, 0, ',', '.') }}</p>
+                                <h2>{{ $plant->nama_tanaman }}</h2>
+                                <p class="price">Rp {{ number_format($plant->harga_tanaman, 0, ',', '.') }}</p>
                                 <button class="btn-detail">Detail</button>
                             </div>
                         </div>

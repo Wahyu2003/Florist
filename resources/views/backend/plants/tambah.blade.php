@@ -2,10 +2,16 @@
 @section('title', 'Tambah Tanaman')
 @section('content')
 <div class="admin-content">
+<<<<<<< Updated upstream
         <h3>Tambah Tanaman</h3>
 
         <a href="/plants" class="btn btn-primary">Kembali</a>
         
+=======
+        <a href="/plants" class="btn btn-primary">Kembali</a> 
+        <br><br>
+        <h3>Data Tanaman Baru</h3>
+>>>>>>> Stashed changes
         <form action="/plants/store" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">

@@ -33,9 +33,14 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/',[PlantsController::class, 'landing']);
 Route::get('/combine',[PlantsController::class, 'combine']);
 Route::get('/shop',[PlantsController::class, 'shoppage']);
+<<<<<<< Updated upstream
 // Route::get('/detail/{id}', [PlantsController::class, 'showDetail']);
 Route::get('/plants/detail/{id}', [PlantsController::class, 'getDetail']);
 
+=======
+Route::get('/shop/cari', [PlantsController::class, 'cari'])->name('shop.cari');
+Route::get('/shop/ajax-cari', [ShopController::class, 'ajaxCari'])->name('shop.ajaxCari');
+>>>>>>> Stashed changes
 
 Route::middleware('auth:admin')->group(function () {
     //ROUTE TABLE PLANTS
