@@ -37,11 +37,8 @@
                         </ul>
                     </td>
                     <td>
-                        <a href="/konfirmasi-pesanan/{{ $ord->id }}" class="btn btn-success" onclick="return confirm('Apakah Anda yakin ingin mengkonfirmasi pesanan ini?')">KONFIRMASI</a>
-                        {{-- <a href="/hapus-pesanan/{{ $ord->id }}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus pesanan ini?')">Hapus</a> --}}
-                        <a href="/hapus-pesanan/{{ $ord->id }}" class="btn btn-danger btn-lg btn-delete">
-                            <i class="fas fa-trash-alt"></i> Hapus
-                        </a>
+                        <a href="/konfirmasi-pesanan/{{ $ord->id }}" onclick="return confirm('Apakah Anda yakin ingin mengkonfirmasi pesanan ini?')">KONFIRMASI</a>
+                        <a href="/hapus-pesanan/{{ $ord->id }}" onclick="return confirm('Apakah Anda yakin ingin menghapus pesanan ini?')">Hapus</a>
                     </td>
                 </tr>
             @endforeach
