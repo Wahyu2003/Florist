@@ -2,7 +2,7 @@
 @section('title', 'Data Admin')
 @section('content')
 <div class="admin-content">
-    <h3>Data Admin</h3>
+    <h3>DATA ADMIN</h3>
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}

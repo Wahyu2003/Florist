@@ -116,19 +116,23 @@ window.addEventListener("click", function(event) {
 document.getElementById('cari').addEventListener('click', function() {
     document.getElementById('search').style.display = 'flex';
     document.getElementById('navigate').style.display = 'none';
+    document.getElementById('result-box').style.display = 'flex';
 });
 
 document.getElementById('closeSearch').addEventListener('click', function() {
     document.getElementById('search').style.display = 'none';
     document.getElementById('navigate').style.display = 'flex';
+    document.getElementById('result-box').style.display = 'none';
 });
 
 window.addEventListener('click', function(event) {
     var search = document.getElementById('search');
     var nav = document.getElementById('navigate');
+    var result = document.getElementById('result-box');
     if (event.target == search) {
         search.style.display = 'none';
         nav.style.display = 'flex';
+        result.style.display = 'none';
     }
 });
 
@@ -176,3 +180,41 @@ window.addEventListener('click', function(event) {
             }
         });
     });
+
+
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+        if (window.innerWidth <= 740) {
+            var nav = document.querySelector('.nav ul');
+            var toggle = document.getElementById('mobile-menu');
+            var search = document.getElementById('search');
+            var result = document.getElementById('result-box');
+            if (nav.style.display === "flex") {
+                nav.style.display = "none";
+                search.style.display = "none";
+                result.style.display = "none";
+                toggle.classList.remove('active');
+            } else {
+                nav.style.display = "flex";
+                search.style.display = "flex";
+                result.style.display = "none";
+                toggle.classList.add('active');
+            }
+        }
+    });
+    
+    window.addEventListener('resize', function() {
+        var nav = document.querySelector('.nav ul');
+        var search = document.getElementById('search');
+        var result = document.getElementById('result-box');
+        result.style.display = "none";
+        if (window.innerWidth > 740) {
+            nav.style.display = "flex"; // Show nav on larger screens
+            search.style.display = "none";
+        } else {
+            nav.style.display = "none"; // Hide nav on smaller screens to ensure correct toggle behavior
+            result.style.display = "none";
+            var toggle = document.getElementById('mobile-menu');
+            toggle.classList.remove('active');
+        }
+    });
+    

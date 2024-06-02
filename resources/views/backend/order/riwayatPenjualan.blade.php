@@ -2,7 +2,8 @@
 @section('title', 'Laporan Penjualan')
 @section('content')
     <div class="admin-content">
-    <h1>Laporan Penjualan</h1>
+    <h3>LAPORAN PENJUALAN</h3>
+    <br>
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}

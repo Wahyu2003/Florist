@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
 
 class PlantsController extends Controller
 {
-<<<<<<< Updated upstream
     public function index()
     {
         $plants = Plants::all();
@@ -24,9 +23,6 @@ class PlantsController extends Controller
     // }
 
     public function landing()
-=======
-    public function combine()
->>>>>>> Stashed changes
     {
         $plants = Plants::all()->groupBy('kategori_tanaman');
         return view('landingpage', compact('plants'));
@@ -38,7 +34,6 @@ class PlantsController extends Controller
         return view('landingpage', compact('plantd'));
     }
 
-<<<<<<< Updated upstream
     public function getDetail($id)
     {
         $plant = Plants::findOrFail($id);
@@ -52,7 +47,6 @@ class PlantsController extends Controller
     //     $plants = Plants::all()->groupBy('kategori_tanaman');
     //     return view('shop', compact('plants'));
     // }
-=======
     public function cari(Request $request)
     {
         $cari = $request->input('cari');
@@ -60,24 +54,23 @@ class PlantsController extends Controller
                         ->orWhere('kategori_tanaman', 'like', "%{$cari}%")
                         ->get()
                         ->groupBy('kategori');
-        return view('shop', compact('plants'));
+        return view('landingpage', compact('plants'));
     }
 
     public function ajaxCari(Request $request)
     {
         $cari = $request->input('cari');
-        $plants = Plant::where('nama_tanaman', 'like', "%{$cari}%")
-                        ->orWhere('kategori', 'like', "%{$cari}%")
-                        ->get();
+        $plants = Plants::where('nama_tanaman', 'like', "%{$cari}%")->get(['id', 'nama_tanaman']);
         return response()->json($plants);
     }
+    
 
-    public function index()
-    {
-        $plants = Plants::all();
-        return view('backend.plants.index', compact('plants'));
-    }
->>>>>>> Stashed changes
+
+    // public function index()
+    // {
+    //     $plants = Plants::all();
+    //     return view('backend.plants.index', compact('plants'));
+    // }
 
     public function tambah()
     {

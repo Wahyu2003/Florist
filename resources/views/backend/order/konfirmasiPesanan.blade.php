@@ -2,7 +2,8 @@
 @section('title', 'Konfirmasi Pesanan')
 @section('content')
 <div class="admin-content">
-    <h1>KONFIRMASI PESANAN</h1>
+    <h3>KONFIRMASI PESANAN</h3>
+    <br>
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}

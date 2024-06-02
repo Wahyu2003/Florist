@@ -9,38 +9,19 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-
-// Route::get('/home', function () {
-//     return view('home');
-// });
-// Route::get('/shop', function () {
-//     return view('shop');
-// });
-Route::get('/about', function () {
-    return view('about');
-});
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Route::get('/combine', function () {
-//     return view('combine');
-// });
 
 Route::get('/',[PlantsController::class, 'landing']);
-Route::get('/combine',[PlantsController::class, 'combine']);
-Route::get('/shop',[PlantsController::class, 'shoppage']);
-<<<<<<< Updated upstream
+
 // Route::get('/detail/{id}', [PlantsController::class, 'showDetail']);
 Route::get('/plants/detail/{id}', [PlantsController::class, 'getDetail']);
 
-=======
 Route::get('/shop/cari', [PlantsController::class, 'cari'])->name('shop.cari');
-Route::get('/shop/ajax-cari', [ShopController::class, 'ajaxCari'])->name('shop.ajaxCari');
->>>>>>> Stashed changes
+Route::get('/shop/ajax-cari', [PlantsController::class, 'ajaxCari'])->name('shop.ajaxCari');
+
 
 Route::middleware('auth:admin')->group(function () {
     //ROUTE TABLE PLANTS

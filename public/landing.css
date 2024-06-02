@@ -3,10 +3,12 @@
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    
 }
 
 body {
     background-color: #fff;
+    font-family: 'Poppins';
 }
 
 body::-webkit-scrollbar {
@@ -22,7 +24,36 @@ body::-webkit-scrollbar {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     z-index: 30;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 10px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -10px);
 }
 
 .logo {
@@ -66,8 +97,9 @@ body::-webkit-scrollbar {
     position: relative;
 }
 
-.nav ul li a , .nav ul li button{
-    display: block; /* Make a block-level element */
+.nav ul li a,
+.nav ul li button {
+    display: block;
     text-decoration: none;
     color: #fff;
     text-shadow: 3px 3px 5px #000;
@@ -78,6 +110,7 @@ body::-webkit-scrollbar {
     transition: all 0.5s;
 }
 
+
 .nav ul li:hover{
     margin: 0 5px;
     border-radius: 5px;
@@ -87,8 +120,13 @@ body::-webkit-scrollbar {
     box-shadow: 0px 5px 5px #00abc2;
 }
 
-.nav ul li:hover a, .nav ul li:hover button{
+.nav ul li:hover a{
     padding: 10px 15px;
+    margin-top: -5px;
+}
+
+.nav ul li button:hover {
+    padding: 15px 15px;
     margin-top: -5px;
 }
 
@@ -191,10 +229,100 @@ body::-webkit-scrollbar {
     height: 100vh;
     background: linear-gradient(to top, #00858a, rgba(173, 255, 214, 0.589));
 }
+.search-box {
+    display: none;
+    /* width: 600px; */
+    /* background-color: #fff; */
+    /* margin: 200px auto; */
+    border-radius: 5px;
+    padding: 10px;
+}
 
+.row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+}
+/* 
+input[type="text"] {
+    flex: 1;
+    height: 50px;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    padding: 10px;
+} */
+
+/* button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+} */
+/* 
+button i {
+    font-size: 22px;
+    color: #333;
+} */
+
+#result-box {
+    z-index: 1000;
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: 100px;
+    width: 430px;
+    max-width: 430px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    padding: 15px 10px;
+    border-radius: 5px;
+}
+
+#result-box ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+}
+
+#result-box button {
+    text-align: left;
+    background-color: transparent;
+    width: 100%;
+    color: #000;
+}
+
+#result-box li {
+    padding: 15px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#result-box li:hover {
+    background-color: #f5f5f5;
+}
+
+#result-box ul::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+#result-box ul::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+#result-box ul::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+}
 
 #search {
     display: none;
+    flex-direction: column;
 }
 
 #search form {
@@ -459,7 +587,6 @@ input[type="submit"]:hover {
   
  
 #loginBtn {
-    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
 }
@@ -619,8 +746,8 @@ form input[type="submit"] {
     border: 1px solid #888;
     width: 80%;
     max-width: 800px;
-    height: 80%;
-    max-height: 80vh;
+    height: 85%;
+    max-height: 85vh;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     display: flex;
@@ -781,4 +908,57 @@ form input[type="submit"] {
 
 .shake {
     animation: shake 0.5s;
+}
+
+
+@media (max-width: 740px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .search-box {   
+        right: 0;
+        padding-left: 150px;
+        max-width: 700px;
+        width: 100%;
+        position: fixed;
+    }
+
+    .search-box .row{
+        justify-content: flex-end;
+    }
+
+    #result-box {
+        width: 100%;
+        right: 30px;
+        max-width: 430px;
+    }
+
+    #result-list {
+        justify-content: flex-end;
+    }
+
+    .nav ul {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #92dcff8e;
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    #closeSearch {
+        opacity: 0;
+    }
+
+    #cari {
+        display: none;
+    }
 }

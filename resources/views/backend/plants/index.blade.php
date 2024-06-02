@@ -32,7 +32,7 @@
                 <td>{{ $pl->suhu_tanaman }}</td>
                 <td>{{ $pl->harga_tanaman }}</td>
                 <td>{{ $pl->stok_tanaman }}</td>
-                <td>{{ $pl->deskripsi_tanaman }}</td>
+                <td class="password-cell">{{ $pl->deskripsi_tanaman }}</td>
                 <td>
                     @if($pl->image_tanaman)
                         <img src="{{ asset('images/' . $pl->image_tanaman) }}" alt="Gambar Tanaman"  class="plant-image">

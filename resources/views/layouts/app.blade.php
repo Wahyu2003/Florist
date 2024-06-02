@@ -8,6 +8,7 @@
     <title>@yield('title')</title>
     <!-- CSS stylesheets -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('font.css') }}" rel="stylesheet">
 </head>
 <body>
     <header>

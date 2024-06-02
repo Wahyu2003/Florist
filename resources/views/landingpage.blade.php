@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Florist</title>
     <link rel="stylesheet" href="landing.css" />
+    <link href="font.css" rel="stylesheet">
 </head>
 
 <body>
@@ -14,21 +15,30 @@
             <img src="icon/logo_florist.png" alt="Florist Logo">
             <h3>Florist</h3>
         </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
         <ul id="navigate">
-            <li><button id="cari">SEARH</button></li>
+            <li><button id="cari">SEARCH</button></li>
             <li><a href="#home">HOME</a></li>
             <li><a href="#shop">SHOP</a></li>
             <li><a href="#about">ABOUT</a></li>
             <li><button id="loginBtn">LOGIN</button></li>
         </ul>
-        <div id="search">
-            <form action="/shop/cari" method="GET">
-                <input type="text" name="cari" placeholder="Cari Produk .." value="{{ old('cari') }}">
-                <input type="submit" value="CARI">
-                <span id="closeSearch" class="close-btn">&times;</span>
-            </form>
+        <div class="search-box" id="search">
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Cari Tanaman..." autocomplete="off">
+                <div id="closeSearch">&times;</div>
+            </div>
+            
         </div>
+        
     </div>
+    <div id="result-box">
+            <ul id="result-list"></ul>
+        </div>
     <section id="home">
         <div class="hero">
             <img src="mentahan/langit.png" class="last-img" alt="">
@@ -245,6 +255,79 @@
             $('#formContainer').hide();
         });
     });
+
+    const inputBox = document.getElementById("input-box");
+const resultBox = document.querySelector("#result-box");
+
+inputBox.addEventListener("keyup", function() {
+    document.getElementById('result-box').style.display = 'flex';
+    const query = inputBox.value;
+    if (query.length > 0) { // Start search when input length is more than 0 characters
+        $.ajax({
+            url: "{{ route('shop.ajaxCari') }}",
+            type: "GET",
+            data: { 'cari': query },
+            success: function(data) {
+                displayResult(data);
+            }
+        });
+    } else {
+        resultBox.style.display = 'none';
+    }
+});
+
+function displayResult(result) {
+    if (result.length > 0) {
+        const content = result.map(function(plant) {
+            // Generate a button with data-id attribute for each plant item
+            return '<li><button class="btn-detail" data-id="' + plant.id + '">' + plant.nama_tanaman + '</button></li>';
+        }).join("");
+        resultBox.innerHTML = "<ul>" + content + "</ul>";
+    } else {
+        resultBox.innerHTML = "<p>No results found</p>";
+    }
+}
+
+// Event listener for handling button clicks
+resultBox.addEventListener("click", function(event) {
+    if (event.target.classList.contains("btn-detail")) { // Check if the clicked element has the class "btn-detail"
+    document.getElementById('result-box').style.display = 'none';
+        var plantId = event.target.dataset.id; // Get the plant ID from the data-id attribute of the clicked button
+        const kategoriGambar = {
+            indoor: 'indoor.jpg',
+            outdoor: 'outdoor.jpg',
+            garden: 'garden.jpg',
+            // Add other categories as needed
+        };
+
+        // Function to get the image URL based on category
+        function getImageByKategori(kategori) {
+            return kategoriGambar[kategori] || 'indoor2.jpg'; // Return the default image if category is not found
+        }
+
+        $.ajax({
+            url: '/plants/detail/' + plantId,
+            type: 'GET',
+            success: function(data) {
+                $('#formContainer .gambarkiri img').attr('src', '/images/' + data.image_tanaman);
+                $('#formContainer .gambarkiri h1').text('Rp ' + data.harga_tanaman.toLocaleString('id-ID'));
+                $('#formContainer .isitengah .kanan h1').text(data.nama_tanaman);
+                $('#formContainer .isitengah .kiri span.size').text(data.size_tanaman);
+                $('#formContainer .isitengah .kiri span.kelembapan').text(data.kelembapan_tanaman);
+                $('#formContainer .isitengah .kiri span.suhu').text(data.suhu_tanaman);
+                $('#formContainer .tengahbawah h1').text(data.kategori_tanaman); 
+                $('#formContainer .tengahbawah h2 span').text(data.stok_tanaman); 
+                $('#formContainer .tengahbawah p').text(data.deskripsi_tanaman);
+                const kategori = data.kategori_tanaman;
+                const imageUrl = getImageByKategori(kategori); 
+                document.querySelector('.form-content').style.background = `linear-gradient(to top, #fff, #ffffff, #ffffff73), url('/kategori/${imageUrl}')`;
+                $('#formContainer').show();
+            }
+        });
+    }
+});
+
+
 </script>
 
 </body>
