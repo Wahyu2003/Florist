@@ -24,7 +24,7 @@
         <tbody>
             @foreach ($pendingOrders as $ord)
                 <tr>
-                    <td>{{ $ord->id }}</td> <!-- Ubah order_id menjadi id -->
+                    <td>{{ $ord->id }}</td> 
                     <td>{{ $ord->user->name }}</td>
                     <td>{{ $ord->total_harga }}</td>
                     <td>{{ $ord->status }}</td>
@@ -37,8 +37,8 @@
                         </ul>
                     </td>
                     <td>
-                        <a href="/konfirmasi-pesanan/{{ $ord->id }}" onclick="return confirm('Apakah Anda yakin ingin mengkonfirmasi pesanan ini?')">KONFIRMASI</a>
-                        <a href="/hapus-pesanan/{{ $ord->id }}" onclick="return confirm('Apakah Anda yakin ingin menghapus pesanan ini?')">Hapus</a>
+                        <a href="/konfirmasi-pesanan/{{ $ord->id }}" class="btn btn-success btn-confirm">Konfirmasi</href=>
+                        <a href="/hapus-pesanan/{{ $ord->id }}" class="btn btn-danger btn-lg btn-delete">Batalkan</href=>
                     </td>
                 </tr>
             @endforeach
@@ -54,6 +54,16 @@
             </div>
         </div>
     </div>
-</div>
+
+    <div class="modal-overlay" id="modalPesanan">
+        <div class="modal">
+            <h2>Konfirmasi Pesanan</h2>
+            <p>Apakah Anda yakin ingin mengkonfirmasi pesanan ini?</p>
+            <div class="modal-buttons">
+                <button class="modal-button confirm" id="confirmPesanan">Konfirmasi</button>
+                <button class="modal-button cancel" id="cancelPesanan">Batal</button>
+            </div>
+        </div>
+    </div>
 </body>
 @endsection

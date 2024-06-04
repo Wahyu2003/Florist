@@ -3,8 +3,9 @@
 @section('content')
     <div class="admin-content">
     <h3>LAPORAN PENJUALAN</h3>
+    <h3 class="price">Total Pendapatan: Rp{{ number_format($totalPendapatan, 0, ',', '.') }},-</h3>
     <br>
-    <form method="GET" action="{{ route('laporan.penjualan') }}">
+    <form method="GET" action="{{ route('laporan.penjualan') }}" class="form-inline">
         <div class="form-row">
             <div class="col-md-4">
                 <input type="date" name="start_date" class="form-control" placeholder="Tanggal Mulai" value="{{ request()->get('start_date') }}">
@@ -46,8 +47,5 @@
             @endforeach
         </tbody>
     </table>
-    <div class="mt-3">
-        <h3>Total Pendapatan: Rp{{ $totalPendapatan }} ,-</h3>
-    </div>
 </div>
 @endsection

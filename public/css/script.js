@@ -46,3 +46,19 @@ function togglePasswordVisibility() {
             };
         });
     });
+
+    document.querySelectorAll('.btn-confirm').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const modalOverlay = document.getElementById('modalPesanan');
+            modalOverlay.style.display = 'flex';
+
+            document.getElementById('confirmPesanan').onclick = () => {
+                window.location.href = button.getAttribute('href');
+            };
+
+            document.getElementById('cancelPesanan').onclick = () => {
+                modalOverlay.style.display = 'none';
+            };
+        });
+    });
