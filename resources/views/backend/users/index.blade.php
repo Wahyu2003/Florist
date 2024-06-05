@@ -20,9 +20,9 @@
 		<tr>
 			<td>{{ $loop->iteration }}</td>
 			<td>{{ $user->name }}</td>
-			<td>{{ $user->email }}</td>
-			<td>{{ $user->password }}</td>
-			<td>{{ $user->alamat_rumah }}</td>
+			<td class="password-cell">{{ $user->email }}</td>
+			<td class="password-cell">{{ $user->password }}</td>
+			<td class="password-cell">{{ $user->alamat_rumah }}</td>
 			<td>{{ $user->no_telp }}</td>
 			<td>{{ $user->tanggal_lahir }}</td>
 			<td>{{ $user->jenis_kelamin }}</td>
