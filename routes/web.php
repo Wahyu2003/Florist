@@ -47,6 +47,8 @@ Route::middleware('auth:admin')->group(function () {
 
     //ROUTE ORDER
     Route::get('/laporan-penjualan', [OrderController::class, 'showCompletedOrders'])->name('laporan.penjualan');
+    Route::get('/laporan-penjualan/cetaksemua', [OrderController::class, 'cetakOrders'])->name('laporan.penjualan.cetaksemua');
+    Route::get('/laporan-penjualan/cetaksatu/{id}', [OrderController::class, 'cetaksatuOrders'])->name('laporan.penjualan.cetaksatu');
     Route::get('/konfirmasi-pesanan',[OrderController::class, 'konfirmationOrders']);
     Route::get('/konfirmasi-pesanan/{id}',[OrderController::class, 'confirmOrder']);
     Route::get('/hapus-pesanan/{id}', [OrderController::class, 'deleteOrder'])->name('deleteOrder');
