@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pesanan;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -37,38 +38,45 @@ class OrderController extends Controller
     public function cetakOrders(Request $request)
     {
         // Mendapatkan input tanggal dari request
-        $start_date = $request->input('start_date');
-        $end_date = $request->input('end_date');
-
+        $start_date = $request->get('start_date');
+        $end_date = $request->get('end_date');
+        
+        // Inisialisasi variabel tanggal yang diformat
+        $formatted_start_date = $start_date ? Carbon::parse($start_date)->format('d-m-Y') : null;
+        $formatted_end_date = $end_date ? Carbon::parse($end_date)->format('d-m-Y') : null;
+        
         // Query untuk mendapatkan pesanan yang completed dan sesuai dengan rentang tanggal
         $query = Pesanan::where('status', 'completed')->with('user', 'orderItems.plant');
-
+        
         if ($start_date) {
             $query->whereDate('created_at', '>=', $start_date);
         }
-
+        
         if ($end_date) {
             $query->whereDate('created_at', '<=', $end_date);
         }
-
+        
         $completedOrders = $query->get();
-
+        
         // Menghitung total pendapatan
         $totalPendapatan = $completedOrders->sum(function ($order) {
             return $order->orderItems->sum('sub_harga');
         });
-
+        
         // Return ke tampilan backend.order.cetaksemua
-        return view('backend.order.cetaksemua', compact('completedOrders', 'totalPendapatan', 'start_date', 'end_date'));
+        return view('backend.order.cetaksemua', compact('completedOrders', 'totalPendapatan', 'formatted_start_date', 'formatted_end_date'));
     }
 
     public function cetaksatuOrders($id)
     {
         // Temukan pesanan berdasarkan ID
-        $order = Pesanan::findOrFail($id);
+        $order = Pesanan::with('user', 'orderItems.plant')->findOrFail($id);
+
+        // Menghitung total pendapatan untuk pesanan ini
+        $totalPendapatan = $order->orderItems->sum('sub_harga');
 
         // Kembalikan view untuk mencetak satu pesanan
-        return view('backend.order.cetaksatu', compact('order'));
+        return view('backend.order.cetaksatu', compact('order', 'totalPendapatan'));
     }
 
 

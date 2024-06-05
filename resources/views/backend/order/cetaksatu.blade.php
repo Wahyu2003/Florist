@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Laporan Data Penjualan</title>
     <link href="{{ asset('css/cetak.css') }}" rel="stylesheet">
     <link href="{{ asset('font.css') }}" rel="stylesheet">
 </head>
-
 <body>
     <div class="layout">
-        <h1 class="judulhead">Laporan DetailPenjualan</h1>
+        <h1 class="judulhead">Laporan Detail Penjualan</h1>
         <div class="nota">
             <div class="img">
                 <img src="{{ asset('icon/logo_florist.png')}}" title="logo florist">
@@ -30,6 +28,7 @@
                     <th>Nama Tanaman</th>
                     <th>Jumlah</th>
                     <th>Harga</th>
+                    <th>Sub Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,8 +36,8 @@
                     <tr>
                         <td>{{ $item->plant->nama_tanaman }}</td>
                         <td>{{ $item->quantity }}</td>
-                        <td>{{ $item->sub_harga }}</td>
-                        <td>Rp{{ number_format($order->orderItems->sum('sub_harga'), 0, ',', '.') }}</td>
+                        <td>Rp{{ number_format($item->sub_harga, 0, ',', '.') }}</td>
+                        <td>Rp{{ number_format($item->sub_harga * $item->quantity, 0, ',', '.') }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -51,8 +50,4 @@
         </table>
     </div>
 </body>
-{{-- <script>
-    window.print();
-</script> --}}
-
 </html>
