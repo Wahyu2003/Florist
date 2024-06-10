@@ -62,3 +62,19 @@ function togglePasswordVisibility() {
             };
         });
     });
+
+    document.querySelectorAll('.btn-logout').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const modalOverlay = document.getElementById('modalLogout');
+            modalOverlay.style.display = 'flex';
+
+            document.getElementById('confirmLogout').onclick = () => {
+                document.getElementById('logout-form').submit();
+            };
+
+            document.getElementById('cancelLogout').onclick = () => {
+                modalOverlay.style.display = 'none';
+            };
+        });
+    });

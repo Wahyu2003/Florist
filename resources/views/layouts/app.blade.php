@@ -24,7 +24,20 @@
                 <li><a href="{{url('admin/orders')}}">Orders</a></li>
                 <li><a href="{{url('admin/users')}}">Users</a></li> --}}
                 {{-- <li><a href="{{url('keranjang')}}"><img src="{{ asset('icon/keranjang.svg') }}" alt=""></a></li> --}}
-                <li>
+            </ul>
+            <ul class="navbar-nav">
+                @auth
+                    <li class="nav-item">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        <a href="#" class="btn-logout">
+                            <img src="{{ asset('icon/logout.svg') }}" alt="Logout">
+                        </a>
+                    </li>
+                @endauth
+            </ul>
+                <!-- <li>
                     <a href="{{url('login')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <img src="{{ asset('icon/logout.svg') }}" alt="">
                     </a>
@@ -32,8 +45,7 @@
                 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
-                </form>
-            </ul>
+                </form> -->
         </nav>
     </header>
 
@@ -56,6 +68,17 @@
                 @yield('content') <!-- This is where the content of each page will be inserted -->
             </div>
         </main>
+    </div>
+
+    <div class="modal-overlay" id="modalLogout" style="display: none;">
+        <div class="modal">
+            <h2>Konfirmasi Logout</h2>
+            <p>Apakah Anda yakin ingin logout?</p>
+            <div class="modal-buttons">
+                <button class="modal-button confirm" id="confirmLogout">Konfirmasi</button>
+                <button class="modal-button cancel" id="cancelLogout">Batal</button>
+            </div>
+        </div>
     </div>
 
     <!-- JavaScript scripts -->

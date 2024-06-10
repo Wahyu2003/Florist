@@ -95,7 +95,7 @@ document.getElementById("iconButton").addEventListener("click", function() {
 });
 
 
-  document.getElementById("loginBtn").addEventListener("click", function() {
+document.getElementById("loginBtn").addEventListener("click", function() {
     var modal = document.getElementById("login-modal");
     modal.style.display = "flex";
 });
