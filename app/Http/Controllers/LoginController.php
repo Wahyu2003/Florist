@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Models\Plants;
 
 class LoginController extends Controller
 {
@@ -16,7 +17,8 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('landingpage');
+        $plants= Plants::all();;
+        return view('landingpage', compact('plants'));
     }
 
     /**
@@ -41,7 +43,7 @@ class LoginController extends Controller
 
         Log::warning('Login failed for user: ' . $credentials['username']);
         return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
+            'username' => 'Username atau Password tidak sesuai.',
         ]);
     }
 

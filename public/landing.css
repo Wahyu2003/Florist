@@ -270,24 +270,7 @@ body::-webkit-scrollbar {
     align-items: center;
     padding: 10px 20px;
 }
-/* 
-input[type="text"] {
-    flex: 1;
-    height: 50px;
-    background-color: transparent;
-    border: 0;
-    outline: 0;
-    font-size: 18px;
-    padding: 10px;
-} */
 
-/* button {
-    background-color: transparent;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-} */
-/* 
 button i {
     font-size: 22px;
     color: #333;
@@ -689,8 +672,8 @@ input[type="submit"]:hover {
 .hidden {
     display: none;
 }
-  
- 
+
+
 #loginBtn {
     font-size: 16px;
     cursor: pointer;
@@ -715,12 +698,15 @@ input[type="submit"]:hover {
     padding: 10px;
     padding-left: 20px;
     border-radius: 10px;
+    border: 1px solid #888;
     width: 80%;
-    max-width: 800px;
+    max-width: 650px;
+    top: 10%;
     height: 90%;
-    max-height: 800px;
+    max-height: 500px;
     text-align: center;
-    position: fixed;
+    position: relative;
+    margin: auto;
     background: linear-gradient(rgba(255, 255, 255, 0.514), rgba(0, 0, 0, 0.623)), 
                 url('background.jpg');
     background-size: cover;

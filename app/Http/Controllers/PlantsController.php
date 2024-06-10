@@ -15,13 +15,7 @@ class PlantsController extends Controller
         $plants = Plants::all();
         return view('backend.plants.index', compact('plants'));
     }
-
-    // public function combine()
-    // {
-    //     $plants = Plants::all()->groupBy('kategori_tanaman');
-    //     return view('combine', compact('plants'));
-    // }
-
+    
     public function landing()
     {
         $plants = Plants::all()->groupBy('kategori_tanaman');
@@ -64,14 +58,6 @@ class PlantsController extends Controller
         return response()->json($plants);
     }
     
-
-
-    // public function index()
-    // {
-    //     $plants = Plants::all();
-    //     return view('backend.plants.index', compact('plants'));
-    // }
-
     public function tambah()
     {
         return view('backend.plants.tambah');
@@ -93,9 +79,6 @@ class PlantsController extends Controller
 
         $imageName = time().'.'.$request->image_tanaman->extension();  
         $request->image_tanaman->move(public_path('images'), $imageName);
-        // Menggunakan metode yang benar untuk mendapatkan ekstensi file
-        // $imageName = Str::random(32) . "." . $request->image_tanaman->getClientOriginalExtension();
-        // $request->image_tanaman->move(public_path('images'), $imageName);
 
         $plant = new Plants();
         $plant->nama_tanaman = $request->nama_tanaman;

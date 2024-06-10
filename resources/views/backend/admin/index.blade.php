@@ -30,8 +30,7 @@
                 <td>
                     <a href="/admin/edit/{{ $ad->id }}" class="btn btn-warning">Edit</a>
                     <a href="/admin/hapus/{{ $ad->id }}" class="btn btn-danger btn-lg btn-delete">
-                        <i class="fas fa-trash-alt"></i> Hapus
-                    </a>
+                        <i class="fas fa-trash-alt"></i> Hapus</a>
                 </td>
             </tr>
             @endforeach

@@ -219,24 +219,34 @@
     </div>
 </div>
 
-
-    <script src="landing.js"></script>
+<script src="landing.js"></script>
     <!-- Include this script in your layout -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
+            // Check if the URL contains the login parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const showLoginModal = urlParams.get('login');
+            if (showLoginModal) {
+                $('#login-modal').show();
+            }
+
+            // Close modal
+            $('#close-modal').click(function() {
+                $('#login-modal').hide();
+            });
+
         $('.btn-detail').click(function() {
             var plantId = $(this).data('id');
             const kategoriGambar = {
                 indoor: 'indoor.jp',
                 outdoor: 'outdoor.jpg',
                 garden: 'garden.jpg',
-                // Tambahkan kategori lainnya sesuai kebutuhan
             };
 
             // Fungsi untuk mendapatkan URL gambar berdasarkan kategori
             function getImageByKategori(kategori) {
-                return kategoriGambar[kategori] || 'indoor2.jpg'; // Mengembalikan gambar default jika kategori tidak ditemukan
+                return kategoriGambar[kategori] || 'indoor2.jpg';
             }
 
             $.ajax({
@@ -266,7 +276,7 @@
     });
 
     const inputBox = document.getElementById("input-box");
-const resultBox = document.querySelector("#result-box");
+    const resultBox = document.querySelector("#result-box");
 
 inputBox.addEventListener("keyup", function() {
     document.getElementById('result-box').style.display = 'flex';
@@ -335,8 +345,6 @@ resultBox.addEventListener("click", function(event) {
         });
     }
 });
-
-
 </script>
 
 </body>
