@@ -270,7 +270,24 @@ body::-webkit-scrollbar {
     align-items: center;
     padding: 10px 20px;
 }
+/* 
+input[type="text"] {
+    flex: 1;
+    height: 50px;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    padding: 10px;
+} */
 
+/* button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+} */
+/* 
 button i {
     font-size: 22px;
     color: #333;
@@ -378,15 +395,43 @@ button i {
     padding-bottom: 30px;
 }
 
+.layout #cari {
+    margin-left : 20px;
+    margin-top: 20px;
+    background-color: #00ff73;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.layout button a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.layout button img {
+    align-items: center;
+    width: auto;
+    height: 16px;
+    margin-right: 5px;
+
+}
+
 #judulshop {
     text-align: center;
-    padding-bottom: 0;
-    color: line;
+    line-height: 0.5;
+    padding: 20px;
+    color: white;
 }
 
 .layout h1 {
     transition: font-size 0.2s ease-in-out;
-    padding: 20px;
+    padding: 0 15px;
     color: #fff;
     text-shadow: 5px 5px 5px #000;
 }
@@ -523,7 +568,7 @@ input[type="submit"]:hover {
 #about {
     height: 100vh;
     padding: 80px 0;
-    background-color: #f9f9f9;
+    background-color: #fafafa;
 }
 
 .about-container {
@@ -551,9 +596,9 @@ input[type="submit"]:hover {
     width: 300px;
     height: 200px;
     overflow: hidden;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     background-color: white;
-    box-shadow: 0px 5px 5px #000;
+    box-shadow: 0px 10px 5px #333;
     border-radius: 10px;
     margin: 20px;
     display: flex;
@@ -563,6 +608,7 @@ input[type="submit"]:hover {
 }
 
 .kotak:hover {
+    transform: translateY(-20px);
     box-shadow: none;
 }
 
@@ -583,11 +629,12 @@ input[type="submit"]:hover {
     z-index: 1;
 }
 .kotak .text {
-    background-color: #ffffff;
-    font-size: clamp(1rem, 2.5vw, 2rem); 
+    background-color: #fff;
+    font-size: clamp(1rem, 2.5vw, 1.5rem); 
     color: #333;
     transform: translateY(100%);
 }
+
 .kotak:hover img {
     transform: translateY(-100%);
 }
@@ -672,8 +719,8 @@ input[type="submit"]:hover {
 .hidden {
     display: none;
 }
-
-
+  
+ 
 #loginBtn {
     font-size: 16px;
     cursor: pointer;
@@ -689,8 +736,6 @@ input[type="submit"]:hover {
     height: 100%;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.719);
-    justify-content: center;
-    align-items: center;
 }
 
 .modal-content {
@@ -698,25 +743,34 @@ input[type="submit"]:hover {
     padding: 10px;
     padding-left: 20px;
     border-radius: 10px;
-    border: 1px solid #888;
     width: 80%;
-    max-width: 650px;
-    top: 10%;
+    max-width: 800px;
     height: 90%;
-    max-height: 500px;
+    max-height: 800px;
     text-align: center;
-    position: relative;
-    margin: auto;
-    background: linear-gradient(rgba(255, 255, 255, 0.514), rgba(0, 0, 0, 0.623)), 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(rgba(255, 255, 255, 0.514), rgba(0, 0, 0, 0.623)),
                 url('background.jpg');
     background-size: cover;
     background-position: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
+
 
 
 .close {
     color: #aaa;
-    float: right;
+    position: absolute; /* Mengatur posisi absolut */
+    top: 10px; /* Sesuaikan jarak dari atas */
+    right: 30px; /* Sesuaikan jarak dari kanan */
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;

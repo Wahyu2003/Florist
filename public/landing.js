@@ -97,7 +97,7 @@ document.getElementById("iconButton").addEventListener("click", function() {
 
 document.getElementById("loginBtn").addEventListener("click", function() {
     var modal = document.getElementById("login-modal");
-    modal.style.display = "flex";
+    modal.style.display = "block";
 });
 
 document.getElementById("close-modal").addEventListener("click", function() {
@@ -257,6 +257,10 @@ window.addEventListener('click', function(event) {
         }
     }
 
+    window.addEventListener('load', () => {
+        // Smooth scroll to the top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     // document.getElementById('shop').addEventListener('scroll', scrol);
     // function scrol(){
     //     var scrols = document.querySelectorAll('.scrol');

@@ -15,11 +15,11 @@ class LoginController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showLoginForm()
-    {
-        $plants= Plants::all();;
-        return view('landingpage', compact('plants'));
-    }
+    // public function showLoginForm()
+    // {
+    //     $plants= Plants::all();;
+    //     return view('landingpage', compact('plants'));
+    // }
 
     /**
      * Handle an authentication attempt.
@@ -45,6 +45,8 @@ class LoginController extends Controller
         return back()->withErrors([
             'username' => 'Username atau Password tidak sesuai.',
         ]);
+
+        return view('landingpage', compact('plants'));
     }
 
     public function logout(Request $request)

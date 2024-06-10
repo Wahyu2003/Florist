@@ -21,7 +21,7 @@
             <span class="bar"></span>
         </div>
         <ul id="navigate">
-            <li><button id="cari">SEARCH</button></li>
+            {{-- <li><button id="cari">SEARCH</button></li> --}}
             <li><a href="#home">HOME</a></li>
             <li><a href="#shop">SHOP</a></li>
             <li><a href="#about">ABOUT</a></li>
@@ -64,6 +64,7 @@
     <section id="shop">
         <div class="layout scroool">
             <h1 id="judulshop">SHOP PLANTS</h1>
+            <button id="cari"><img src="icon/search.svg" alt=""><a href="#shop">Search</a></button>
             @foreach ($plants as $kategori_tanaman => $items)
                 <h1>{{ $kategori_tanaman }}</h1>
                 <div class="card-container scrol">
@@ -85,7 +86,7 @@
     
 
     <section id="about">
-        <div class="about-container">
+        <div class="about-container scroool">
             <h1>Tentang Kami</h1>
             <p>Selamat datang di Florist, destinasi terbaik untuk semua kebutuhan bunga Anda. Kami memiliki kegembiraan
                 untuk membawa keindahan alam ke dalam hidup Anda melalui koleksi bunga dan tanaman yang eksklusif.</p>
