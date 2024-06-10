@@ -11,6 +11,30 @@ body {
     font-family: 'Poppins';
 }
 
+.scroool {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.scroool.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+/* .scrol {
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1.5s ease;
+}
+
+.scrol.active {
+    transform: translateY(0px);
+    opacity: 1;
+} */
+
 body::-webkit-scrollbar {
     display: none;
     
@@ -39,13 +63,14 @@ body::-webkit-scrollbar {
 .menu-toggle .bar {
     height: 3px;
     width: 25px;
-    background: #333;
+    background: #fff;
     margin: 4px 0;
     transition: 0.4s;
 }
 
 .menu-toggle.active .bar:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 10px);
+    background-color: rgb(240, 165, 79);
 }
 
 .menu-toggle.active .bar:nth-child(2) {
@@ -54,6 +79,7 @@ body::-webkit-scrollbar {
 
 .menu-toggle.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -10px);
+    background-color: rgb(240, 165, 79);
 }
 
 .logo {
@@ -364,12 +390,19 @@ button i {
 .layout {
     flex: 0 0 auto;
     height: auto;
-    padding-top: 90px;
+    padding-top: 0;
     overflow: hidden;
     padding-bottom: 30px;
 }
 
+#judulshop {
+    text-align: center;
+    padding-bottom: 0;
+    color: line;
+}
+
 .layout h1 {
+    transition: font-size 0.2s ease-in-out;
     padding: 20px;
     color: #fff;
     text-shadow: 5px 5px 5px #000;
@@ -384,11 +417,14 @@ button i {
 }
 
 .card-container .card img {
-    max-width: 350px;
-    max-height: 300px;
+    max-height: 150px;
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Vertically centers the img */
+    justify-content: center; /* Horizontally centers the img */
     flex: 0 0 auto;
     background: white;
     border-radius: 10px;
@@ -405,7 +441,10 @@ button i {
 
 .card img {
     width: 100%;
-    height: auto;
+    justify-content: center;
+    height: 150px;
+    width: auto;
+    transition: all 0.2s ease-in-out;
 }
 
 .card-info {
@@ -499,12 +538,14 @@ input[type="submit"]:hover {
 
 
 #about {
-    padding: 50px 0;
+    height: 100vh;
+    padding: 80px 0;
     background-color: #f9f9f9;
 }
 
 .about-container {
-    max-width: 800px;
+    padding: 0 10%;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
 }
@@ -512,6 +553,63 @@ input[type="submit"]:hover {
 .about-container h1 {
     font-size: 32px;
     margin-bottom: 20px;
+}
+
+.layanan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.kotak {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border: 1px solid white;
+    background-color: white;
+    box-shadow: 0px 5px 5px #000;
+    border-radius: 10px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.kotak:hover {
+    box-shadow: none;
+}
+
+.kotak img, .kotak .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+}
+.kotak img {
+    padding: 10px;
+    object-fit: contain;
+    z-index: 1;
+}
+.kotak .text {
+    background-color: #ffffff;
+    font-size: clamp(1rem, 2.5vw, 2rem); 
+    color: #333;
+    transform: translateY(100%);
+}
+.kotak:hover img {
+    transform: translateY(-100%);
+}
+.kotak:hover .text {
+    transform: translateY(0);
 }
 
 .about-container p {
@@ -529,19 +627,23 @@ input[type="submit"]:hover {
     z-index: 40;
 
     width: auto;
-    padding: 10px;
+    padding: 5px 10px;
     background: white;
     box-shadow: 5px 5px 5px #000;
     border-radius: 30px;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease-in-out; /* For rotation animation */
+    transition: all 0.3s ease-in-out; /* For rotation animation */
+}
+
+.cs h2 {
+    font-size: 22px;
 }
 
 .cs img {
     height: 20px;
     width: auto;
-    margin-right: 5px;
+    margin-right: 3px;
 }
 
 #icons {
@@ -556,7 +658,7 @@ input[type="submit"]:hover {
 .icon {
     display: block;
     margin: 15px 0;
-    padding: 10px;
+    padding: 5px;
     background: white;
     box-shadow: 5px 5px 5px #000;
     border-radius: 30px;
@@ -574,11 +676,14 @@ input[type="submit"]:hover {
 
 .icon.show {
     opacity: 1; /* Make visible */
+    padding-bottom: 0;
     transform: translateY(0); /* Move to original position */
 }
 
 .rotate {
     transform: rotate(360deg); /* Rotate 180 degrees */
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .hidden {
@@ -788,7 +893,7 @@ form input[type="submit"] {
 }
 
 .gambarkiri img {
-    max-width: 350px;
+    max-width: 300px;
     background-color: #fff;
     box-shadow: 0 10px 10px #888;
     border-radius: 10px;
@@ -960,5 +1065,177 @@ form input[type="submit"] {
 
     #cari {
         display: none;
+    }
+
+    #judulshop {
+        font-size: 22px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .card-container{
+        padding: 5px;
+        gap: 5px;
+    }
+
+    .card img {
+        height: 80px;
+        min-height: 40px;
+    }
+
+    .layout h1 {
+        font-size: 20px;
+        padding: 5px;
+    }
+    
+    .card-info {
+        padding: 5px;
+    }
+    
+    .card-info h2 {
+        margin: 0 0 5px;
+        font-size: 16px;
+    }
+    
+    .price {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+    
+    .btn-detail {
+        border-radius: 3px;
+        padding: 5px;
+    }
+
+    #icons {
+        bottom: 80px;
+        right: 40px;
+        z-index: 40;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .icon {
+        display: block;
+        margin: 10px 0;
+        padding: 5px;
+        background: white;
+        box-shadow: 3px 3px 3px #000;
+        border-radius: 20px;
+        justify-content: center;
+        align-items: center;
+        opacity: 0; /* Initially hidden */
+        transform: translateY(20px); /* Start position for animation */
+        transition: all 0.3s ease-in-out; /* Animation for visibility */
+    }
+    
+    .icon img {
+        height: 30px;
+        width: auto;
+    }
+    
+    .icon.show {
+        opacity: 1; /* Make visible */
+        padding-bottom: 0;
+        transform: translateY(0); /* Move to original position */
+    }
+    
+    .rotate {
+        transform: rotate(360deg); /* Rotate 180 degrees */
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .cs {
+        right: 40px;
+    }
+
+    .cs h2 {
+        font-size: 20px;
+    }
+
+    /* .scrol {
+        transition: all 0.6s ease;
+    } */
+
+    .isidetail {
+        display: flex;
+        flex-direction: column; /* Menjadikan .isidetail menjadi kolom */
+        overflow-y: auto; /* Menambahkan scroll vertikal jika konten melebihi ukuran layar */
+    }
+    
+
+    .gambarkiri img {
+        max-width: 150px;
+    }
+
+    .gambarkiri h1 {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .isitengah {
+        margin: 5px;
+    }
+
+    .isitengah .kiri{
+        display: flex;
+        padding: 5px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .tengahatas {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .tengahatas .kanan {
+        color: rgb(0, 255, 42);
+    }
+
+    .kanan, .kiri {
+        width: 100%;
+        text-align: left;
+    }
+
+    .kanan h1, .kiri h1 {
+        font-size: 14px;
+    }
+
+    .kiri span {
+        font-size: 14px;
+    }
+
+    .bawahtengah {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .bawahtengah h1, .bawahtengah h2 {
+        font-size: 14px;
+    }
+
+    .download {
+        padding: 5px 0;
+    }
+
+    .download a {
+        font-size: 16px;
+    }
+
+    .gambarkiri img:hover {
+        transform: none; /* Atur faktor perbesaran sesuai kebutuhan */
+        box-shadow: 0 10px 10px #888;
+        translate: none;
+        margin-bottom: 10px;
+    }
+
+    .layanan {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }

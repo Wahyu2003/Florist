@@ -62,10 +62,11 @@
     </section>
 
     <section id="shop">
-        <div class="layout">
+        <div class="layout scroool">
+            <h1 id="judulshop">SHOP PLANTS</h1>
             @foreach ($plants as $kategori_tanaman => $items)
                 <h1>{{ $kategori_tanaman }}</h1>
-                <div class="card-container">
+                <div class="card-container scrol">
                     @foreach ($items as $plant)
                         <div class="card">
                             <img src="{{ asset('images/' . $plant->image_tanaman) }}" alt="{{ $plant->nama_tanaman }}">
@@ -81,19 +82,27 @@
             @endforeach
         </div>
     </section>
+    
 
     <section id="about">
         <div class="about-container">
             <h1>Tentang Kami</h1>
             <p>Selamat datang di Florist, destinasi terbaik untuk semua kebutuhan bunga Anda. Kami memiliki kegembiraan
                 untuk membawa keindahan alam ke dalam hidup Anda melalui koleksi bunga dan tanaman yang eksklusif.</p>
-            <p>Di Florist, kami memahami pentingnya setiap momen, baik itu perayaan kegembiraan maupun momen pengingat
-                yang tulus. Itulah mengapa kami berusaha untuk menyediakan bunga-bunga segar terbaik dan rangkaian bunga
-                yang paling menakjubkan untuk memenuhi setiap kebutuhan.</p>
-            <p>Tim ahli tukang bunga kami berdedikasi untuk menciptakan desain-desain unik yang menangkap essensi dari
-                setiap bunga, menciptakan rangkaian yang memukau dan tak terlupakan.</p>
-            <p>Baik Anda mencari buket sempurna untuk menyemarakkan hari seseorang atau dekorasi bunga yang elegan untuk
-                acara spesial Anda, Florist hadir untuk mewujudkan visi bunga Anda.</p>
+            <div class="layanan">
+                <div class="kotak">
+                    <img src="icon/kepuasanpelanggan.png" alt="Image">
+                    <div class="text">kami mengutamakan kepuasan pelanggan</div>
+                </div>
+                <div class="kotak">
+                    <img src="icon/hargaterjangkau.png" alt="Image">
+                    <div class="text">harga terjangkau</div>
+                </div>
+                <div class="kotak">
+                    <img src="icon/gratisongkir.png" alt="Image">
+                    <div class="text">gratis ongkir didalam kota jember</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -102,10 +111,10 @@
         <h2 id="chatText">chat</h2>
     </div>
     <div id="icons">
-        <a href="#" class="icon" id="igIcon" title="instagram"><img src="icon/ig.png" alt=""></a>
-        <a href="#" class="icon" id="fbIcon" title="facebook"><img src="icon/fb.png" alt=""></a>
-        <a href="#" class="icon" id="emailIcon" title="email"><img src="icon/email.png" alt=""></a>
-        <a href="#" class="icon" id="waIcon" title="whatsapp"><img src="icon/wa.png" alt=""></a>
+        <a target="_blank" href="https://www.instagram.com/oliver_t29.k1/" class="icon" id="igIcon" title="instagram"><img src="icon/ig.png" alt=""></a>
+        <a target="_blank" href="https://www.facebook.com/florist.062024" class="icon" id="fbIcon" title="facebook"><img src="icon/fb.png" alt=""></a>
+        <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=levinleon18@email.com&su=Florist" class="icon" id="emailIcon" title="email"><img src="icon/email.png" alt=""></a>
+        <a target="_blank" href="https://api.whatsapp.com/send?phone=6283853575562&text=*Pesan%20:%20dari%20website%20florist*%0A%0Akeluhan%20:%20" class="icon" id="waIcon" title="whatsapp"><img src="icon/wa.png" alt=""></a>
     </div>
 
     <div id="login-modal" class="modal">

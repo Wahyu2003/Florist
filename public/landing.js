@@ -218,3 +218,58 @@ window.addEventListener('click', function(event) {
         }
     });
     
+
+    // const cardContainers = document.querySelectorAll('.card-container');
+
+    // function handleScroll() {
+    //     cardContainers.forEach(container => {
+    //         const rect = container.getBoundingClientRect();
+    //         if (rect.top < window.innerHeight && rect.bottom >= 0) {
+    //             container.classList.add('visible');
+    //             container.classList.remove('hidden');
+    //         } else {
+    //             container.classList.add('hidden');
+    //             container.classList.remove('visible');
+    //         }
+    //     });
+    // }
+
+    // // Attach the scroll event to the window
+    // window.addEventListener('scroll', handleScroll);
+
+    // // Initial check to see if the element is in view
+    // handleScroll();
+
+    window.addEventListener('scroll', scroool);
+    function scroool(){
+        var scroools = document.querySelectorAll('.scroool');
+
+        for (var i = 0; i < scroools.length; i++) {
+            var windowHeight = window.innerHeight;
+            var scrooolTop = scroools[i].getBoundingClientRect().top;
+            var scrooolPoint = 150;
+
+            if(scrooolTop < windowHeight - scrooolPoint) {
+                scroools[i].classList.add('active');
+            } else {
+                scroools[i].classList.remove('active');
+            }
+        }
+    }
+
+    // document.getElementById('shop').addEventListener('scroll', scrol);
+    // function scrol(){
+    //     var scrols = document.querySelectorAll('.scrol');
+
+    //     for (var i = 0; i < scrols.length; i++) {
+    //         var windowHeight = window.innerHeight;
+    //         var scrolTop = scrols[i].getBoundingClientRect().top;
+    //         var scrolPoint = 50;
+
+    //         if(scrolTop < windowHeight - scrolPoint) {
+    //             scrols[i].classList.add('active');
+    //         } else {
+    //             scrols[i].classList.remove('active');
+    //         }
+    //     }
+    // }
